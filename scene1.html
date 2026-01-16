@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Meet Awi</title>
+
+<style>
+/* =====================
+   GLOBAL RESET
+===================== */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background: radial-gradient(circle at top, #1a1a1a, #000);
+    color: white;
+    overflow: hidden;
+}
+
+/* =====================
+   FADE TRANSITIONS (SAFE)
+===================== */
+body {
+    opacity: 1;
+    transition: opacity 0.6s ease;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+/* =====================
+   SCENE LAYOUT
+===================== */
+.scene {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: clamp(20px, 4vw, 50px);
+}
+
+/* =====================
+   TOP BAR
+===================== */
+.top-bar {
+    display: flex;
+    align-items: center;
+}
+
+.back-btn {
+    background: rgba(40, 40, 40, 0.85);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+.back-btn:hover {
+    background: rgba(70, 70, 70, 0.95);
+}
+
+/* =====================
+   SCENE TITLE
+===================== */
+.scene-title {
+    text-align: center;
+    font-size: clamp(24px, 3.5vw, 36px);
+    margin-top: clamp(20px, 5vh, 40px);
+    letter-spacing: 0.5px;
+}
+
+/* =====================
+   CHARACTER VISUAL
+===================== */
+.scene-visual {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scene-visual img {
+    max-width: 65%;
+    max-height: 45vh;
+    object-fit: contain;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 120, 0.25));
+    opacity: 0.95;
+}
+
+/* =====================
+   DIALOGUE BOX
+===================== */
+.dialogue-box {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto clamp(20px, 4vh, 40px);
+    background: rgba(20, 20, 20, 0.92);
+    border-radius: 16px;
+    padding: clamp(16px, 2.5vw, 22px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+/* Speaker */
+.speaker {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #ffd56b;
+}
+
+/* Dialogue text */
+.dialogue-text {
+    font-size: clamp(15px, 2.3vw, 17px);
+    line-height: 1.55;
+}
+
+/* =====================
+   ACTION BUTTON
+===================== */
+.dialogue-actions {
+    text-align: right;
+    margin-top: 14px;
+}
+
+.dialogue-actions button {
+    font-size: 14px;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #3a3a3a, #1f1f1f);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+}
+
+.dialogue-actions button:hover {
+    transform: translateY(-1px);
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <button class="back-btn" onclick="goHome()">← Home</button>
+    </div>
+
+    <!-- TITLE -->
+    <div class="scene-title">
+        Meet Awi
+    </div>
+
+    <!-- CHARACTER IMAGE -->
+    <div class="scene-visual">
+        <img src="awi-wfh.png" alt="Awi working from home">
+    </div>
+
+    <!-- DIALOGUE -->
+    <div class="dialogue-box">
+        <div class="speaker">Narrator</div>
+
+        <div class="dialogue-text">
+            Meet <strong>Awi</strong>, an IT specialist running his business from home.<br><br>
+            What started as a small operation has been growing steadily — more clients, more projects,
+            and now a small but dedicated team working alongside him.<br><br>
+            As the business expands, Awi begins to realise that working from home may no longer be enough.
+            His team needs a proper space to collaborate, grow, and move forward together.
+        </div>
+
+        <div class="dialogue-actions">
+            <button onclick="nextScene()">Continue ▶</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function goHome() {
+    document.body.classList.add("fade-out");
+    setTimeout(() => {
+        window.location.href = "index.html";
+    }, 600);
+}
+
+function nextScene() {
+    document.body.classList.add("fade-out");
+    setTimeout(() => {
+        window.location.href = "scene2.html";
+    }, 600);
+}
+</script>
+
+</body>
+</html>
