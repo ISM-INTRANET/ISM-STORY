@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Scene 2 — Discovering Opportunities</title>
+<title>BEDB - ISM</title>
 
 <style>
 /* =====================
@@ -101,6 +101,18 @@ body.fade-out {
     filter: drop-shadow(0 0 20px rgba(255, 215, 120, 0.25));
 }
 
+/* Highlight keywords */
+.highlight-bedb {
+    color: #ffd56b; /* yellow */
+    font-weight: bold;
+}
+
+.highlight-ism {
+    color: rgb(0, 145, 99); /* ISM green */
+    font-weight: bold;
+}
+
+
 /* =====================
    DIALOGUE BOX
 ===================== */
@@ -178,13 +190,12 @@ body.fade-out {
 
     <!-- TITLE -->
     <div class="scene-title">
-        Scene 2 — Discovering Opportunities
+        BEDB - ISM
     </div>
 
     <!-- IMAGE -->
     <div class="scene-visual">
-        <img src="awi-discovering-opportunities.png"
-             alt="Awi discovering BEDB opportunities">
+        <img src="scene2.png">
     </div>
 
     <!-- DIALOGUE -->
@@ -192,20 +203,21 @@ body.fade-out {
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            While researching potential solutions, Awi comes across the
-            <strong>Brunei Economic Development Board (BEDB)</strong>.<br><br>
+    While researching potential solutions, <strong>MC</strong> comes across the
+    <span class="highlight-bedb">Brunei Economic Development Board (BEDB)</span>.<br><br>
 
-            He discovers that BEDB offers various spaces tailored for businesses — whether it’s
-            <strong>industrial land</strong> for long-term development, or a
-            <strong>ready-built factory</strong> for faster setup and immediate operations.<br><br>
+    He discovers that BEDB offers various spaces tailored for businesses — whether it’s
+    <strong>industrial land</strong> for long-term development, or a
+    <strong>ready-built factory</strong> for faster setup and immediate operations.<br><br>
 
-            More importantly, Awi learns that under BEDB, there is a dedicated department called
-            <strong>Industrial Site Management (ISM)</strong> — a team that assists tenants with site matters,
-            facilities, and operational challenges as their businesses grow.<br><br>
+    More importantly, MC learns that under BEDB, there is a dedicated department called
+    <span class="highlight-ism">Industrial Site Management (ISM)</span> — a team that assists tenants
+    with site matters, facilities, and operational challenges as their businesses grow.<br><br>
 
-            With a clearer path ahead, Awi decides to drop by the BEDB office tomorrow to meet an
-            ISM representative and learn more about the support available.
-        </div>
+    With a clearer path ahead, MC decides to drop by the BEDB office tomorrow to meet an
+    ISM representative and learn more about the support available.
+</div>
+
 
         <div class="dialogue-actions">
             <button onclick="nextScene()">Continue ▶</button>
