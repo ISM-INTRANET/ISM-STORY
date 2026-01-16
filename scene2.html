@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Scene 2 — Discovering Opportunities</title>
+
+<style>
+/* =====================
+   GLOBAL RESET
+===================== */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background: radial-gradient(circle at top, #1a1a1a, #000);
+    color: white;
+    overflow: hidden;
+}
+
+/* =====================
+   FADE TRANSITION
+===================== */
+body {
+    opacity: 1;
+    transition: opacity 0.6s ease;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+/* =====================
+   SCENE LAYOUT
+===================== */
+.scene {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: clamp(16px, 4vw, 50px);
+}
+
+/* =====================
+   TOP BAR
+===================== */
+.top-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.top-bar button {
+    background: rgba(40, 40, 40, 0.85);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+.top-bar button:hover {
+    background: rgba(70, 70, 70, 0.95);
+}
+
+/* =====================
+   SCENE TITLE
+===================== */
+.scene-title {
+    text-align: center;
+    font-size: clamp(22px, 3.2vw, 34px);
+    margin-top: 16px;   /* RAISED */
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+/* =====================
+   SCENE VISUAL
+===================== */
+.scene-visual {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.scene-visual img {
+    width: min(60vw, 420px);   /* SMALLER */
+    max-height: 38vh;          /* SMALLER */
+    object-fit: contain;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 120, 0.25));
+}
+
+/* =====================
+   DIALOGUE BOX
+===================== */
+.dialogue-box {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 20px;
+    background: rgba(20, 20, 20, 0.92);
+    border-radius: 16px;
+    padding: clamp(14px, 2.5vw, 22px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+/* Speaker */
+.speaker {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #ffd56b;
+}
+
+/* Dialogue text */
+.dialogue-text {
+    font-size: clamp(14px, 2.2vw, 17px);
+    line-height: 1.55;
+}
+
+/* =====================
+   ACTION BUTTON
+===================== */
+.dialogue-actions {
+    text-align: right;
+    margin-top: 14px;
+}
+
+.dialogue-actions button {
+    font-size: 14px;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #3a3a3a, #1f1f1f);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+}
+
+.dialogue-actions button:hover {
+    transform: translateY(-1px);
+}
+
+/* =====================
+   MOBILE PORTRAIT FIX
+===================== */
+@media (max-width: 768px) {
+    .scene-visual img {
+        width: 85vw;
+        max-height: 32vh;
+    }
+
+    .scene-title {
+        font-size: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <button onclick="goHome()">← Home</button>
+        <button onclick="goBack()">← Back</button>
+    </div>
+
+    <!-- TITLE -->
+    <div class="scene-title">
+        Scene 2 — Discovering Opportunities
+    </div>
+
+    <!-- IMAGE -->
+    <div class="scene-visual">
+        <img src="awi-discovering-opportunities.png"
+             alt="Awi discovering BEDB opportunities">
+    </div>
+
+    <!-- DIALOGUE -->
+    <div class="dialogue-box">
+        <div class="speaker">Narrator</div>
+
+        <div class="dialogue-text">
+            While researching potential solutions, Awi comes across the
+            <strong>Brunei Economic Development Board (BEDB)</strong>.<br><br>
+
+            He discovers that BEDB offers various spaces tailored for businesses — whether it’s
+            <strong>industrial land</strong> for long-term development, or a
+            <strong>ready-built factory</strong> for faster setup and immediate operations.<br><br>
+
+            More importantly, Awi learns that under BEDB, there is a dedicated department called
+            <strong>Industrial Site Management (ISM)</strong> — a team that assists tenants with site matters,
+            facilities, and operational challenges as their businesses grow.<br><br>
+
+            With a clearer path ahead, Awi decides to drop by the BEDB office tomorrow to meet an
+            ISM representative and learn more about the support available.
+        </div>
+
+        <div class="dialogue-actions">
+            <button onclick="nextScene()">Continue ▶</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function goHome() {
+    document.body.classList.add("fade-out");
+    setTimeout(() => {
+        window.location.href = "index.html";
+    }, 600);
+}
+
+function goBack() {
+    document.body.classList.add("fade-out");
+    setTimeout(() => {
+        window.location.href = "scene1.html";
+    }, 600);
+}
+
+function nextScene() {
+    document.body.classList.add("fade-out");
+    setTimeout(() => {
+        window.location.href = "scene3-ism.html";
+    }, 600);
+}
+</script>
+
+</body>
+</html>
