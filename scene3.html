@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Arriving at BEDB</title>
+
+<style>
+/* ==================================================
+   GLOBAL RESET & BASE
+================================================== */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    background: radial-gradient(circle at top, #1c1c1c 0%, #000 65%);
+    color: #fff;
+    overflow: hidden;
+}
+
+/* ==================================================
+   FADE TRANSITION
+================================================== */
+body {
+    opacity: 1;
+    transition: opacity 0.6s ease;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+/* ==================================================
+   SCENE LAYOUT
+================================================== */
+.scene {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: clamp(16px, 4vw, 50px);
+}
+
+/* ==================================================
+   TOP BAR
+================================================== */
+.top-bar {
+    display: flex;
+    gap: 12px;
+}
+
+.top-bar button {
+    background: rgba(40, 40, 40, 0.9);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    color: white;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.top-bar button:hover {
+    background: rgba(70, 70, 70, 0.95);
+    transform: translateY(-1px);
+}
+
+/* ==================================================
+   SCENE TITLE
+================================================== */
+.scene-title {
+    text-align: center;
+    font-size: clamp(22px, 3vw, 36px);
+    margin: 18px 0 6px;
+    letter-spacing: 0.6px;
+}
+
+/* ==================================================
+   VISUAL (STATIC, CINEMATIC)
+================================================== */
+.scene-visual {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scene-visual img {
+    width: min(82vw, 560px);
+    max-height: 52vh;
+    object-fit: contain;
+    filter:
+        drop-shadow(0 0 40px rgba(255, 200, 120, 0.4))
+        drop-shadow(0 0 90px rgba(0, 0, 0, 0.7));
+}
+
+/* ==================================================
+   DIALOGUE BOX
+================================================== */
+.dialogue-box {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 22px;
+    background: rgba(18, 18, 18, 0.95);
+    border-radius: 18px;
+    padding: clamp(16px, 2.5vw, 24px);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.85);
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.speaker {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffd56b;
+    letter-spacing: 0.4px;
+}
+
+.dialogue-text {
+    font-size: clamp(14px, 2.2vw, 17px);
+    line-height: 1.6;
+    color: #eaeaea;
+}
+
+/* ==================================================
+   CHOICE BUTTONS (REFINED COLOR)
+================================================== */
+.choice-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 26px;
+}
+
+.choice-buttons button {
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+    padding: 26px 0;
+    font-size: clamp(18px, 2.6vw, 22px);
+    font-weight: bold;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 215, 120, 0.25);
+    cursor: pointer;
+    color: #f2f2f2;
+
+    /* NEW base color: deep graphite */
+    background: linear-gradient(
+        145deg,
+        #262626,
+        #121212
+    );
+
+    box-shadow:
+        0 10px 26px rgba(0,0,0,0.75);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border 0.25s ease;
+}
+
+/* Golden sweep */
+.choice-buttons button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -130%;
+    width: 130%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 215, 120, 0.28),
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.choice-buttons button:hover {
+    transform: translateY(-3px) scale(1.02);
+    border: 1px solid rgba(255, 215, 120, 0.8);
+    box-shadow:
+        0 16px 42px rgba(0,0,0,0.9),
+        0 0 28px rgba(255,215,120,0.45);
+}
+
+.choice-buttons button:hover::before {
+    left: 130%;
+}
+
+.choice-buttons button:active {
+    transform: translateY(1px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.65);
+}
+
+/* ==================================================
+   MOBILE STACK
+================================================== */
+@media (max-width: 768px) {
+    .choice-buttons {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+    <div class="top-bar">
+        <button onclick="goHome()">← Home</button>
+        <button onclick="goBack()">← Back</button>
+    </div>
+
+    <div class="scene-title">
+        Arriving at BEDB
+    </div>
+
+    <div class="scene-visual">
+        <img src="scene3.png" alt="MC arriving at BEDB HQ">
+    </div>
+
+    <div class="dialogue-box">
+        <div class="speaker">Narrator</div>
+
+        <div class="dialogue-text">
+            The next morning, MC arrives at the
+            <span style="color:#ffd56b;font-weight:bold;">
+                Brunei Economic Development Board (BEDB)
+            </span>
+            headquarters.<br><br>
+
+            He pauses briefly, taking in the surroundings.
+            This meeting will determine the next step in his journey.
+        </div>
+
+        <div class="choice-buttons">
+            <button onclick="meetBAA()">BAA</button>
+            <button onclick="meetTMT()">TMT</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function goHome() {
+    document.body.classList.add("fade-out");
+    setTimeout(() => window.location.href = "index.html", 600);
+}
+
+function goBack() {
+    document.body.classList.add("fade-out");
+    setTimeout(() => window.location.href = "scene2.html", 600);
+}
+
+function meetBAA() {
+    document.body.classList.add("fade-out");
+    setTimeout(() => window.location.href = "scene4.html", 600);
+}
+
+function meetTMT() {
+    document.body.classList.add("fade-out");
+    setTimeout(() => window.location.href = "scene4-tmt.html", 600);
+}
+</script>
+
+</body>
+</html>

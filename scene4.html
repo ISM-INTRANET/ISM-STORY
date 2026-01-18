@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BEDB - ISM</title>
+<title>BAA Assistance</title>
 
 <style>
 /* =====================
@@ -19,8 +19,8 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-    background: radial-gradient(circle at top, #1a1a1a, #000);
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    background: radial-gradient(circle at top, #1c1c1c, #000);
     color: white;
     overflow: hidden;
 }
@@ -52,16 +52,15 @@ body.fade-out {
 ===================== */
 .top-bar {
     display: flex;
-    align-items: center;
     gap: 12px;
 }
 
 .top-bar button {
-    background: rgba(40, 40, 40, 0.85);
-    border: none;
-    border-radius: 10px;
+    background: rgba(40, 40, 40, 0.9);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
     color: white;
-    padding: 8px 14px;
+    padding: 8px 16px;
     cursor: pointer;
     font-size: 14px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.6);
@@ -76,40 +75,28 @@ body.fade-out {
 ===================== */
 .scene-title {
     text-align: center;
-    font-size: clamp(22px, 3.2vw, 34px);
-    margin-top: 16px;
-    margin-bottom: 10px;
+    font-size: clamp(22px, 3vw, 34px);
+    margin: 18px 0 8px;
     letter-spacing: 0.5px;
 }
 
 /* =====================
-   SCENE VISUAL
+   SCENE VISUAL (OPTIONAL IMAGE)
 ===================== */
 .scene-visual {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
 }
 
 .scene-visual img {
-    width: min(60vw, 420px);
-    max-height: 38vh;
+    width: min(78vw, 520px);
+    max-height: 46vh;
     object-fit: contain;
-    image-rendering: pixelated;
-    filter: drop-shadow(0 0 20px rgba(255, 215, 120, 0.25));
-}
-
-/* Highlight keywords */
-.highlight-bedb {
-    color: #ffd56b;
-    font-weight: bold;
-}
-
-.highlight-ism {
-    color: rgb(0, 145, 99);
-    font-weight: bold;
+    filter:
+        drop-shadow(0 0 36px rgba(255, 200, 120, 0.35))
+        drop-shadow(0 0 80px rgba(0, 0, 0, 0.7));
 }
 
 /* =====================
@@ -118,22 +105,29 @@ body.fade-out {
 .dialogue-box {
     width: 100%;
     max-width: 1100px;
-    margin: 0 auto 20px;
-    background: rgba(20, 20, 20, 0.92);
-    border-radius: 16px;
-    padding: clamp(14px, 2.5vw, 22px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    margin: 0 auto 22px;
+    background: rgba(18, 18, 18, 0.95);
+    border-radius: 18px;
+    padding: clamp(16px, 2.5vw, 24px);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.85);
 }
 
 .speaker {
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     color: #ffd56b;
 }
 
 .dialogue-text {
     font-size: clamp(14px, 2.2vw, 17px);
-    line-height: 1.55;
+    line-height: 1.6;
+    color: #eaeaea;
+}
+
+/* Highlight */
+.highlight-baa {
+    color: #ffd56b;
+    font-weight: bold;
 }
 
 /* =====================
@@ -141,18 +135,18 @@ body.fade-out {
 ===================== */
 .dialogue-actions {
     text-align: right;
-    margin-top: 14px;
+    margin-top: 20px;
 }
 
 .dialogue-actions button {
-    font-size: 14px;
-    padding: 8px 20px;
+    font-size: 15px;
+    padding: 10px 26px;
     border: none;
-    border-radius: 10px;
-    background: linear-gradient(145deg, #3a3a3a, #1f1f1f);
+    border-radius: 12px;
+    background: linear-gradient(145deg, #2e2e2e, #151515);
     color: white;
     cursor: pointer;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.65);
 }
 
 .dialogue-actions button:hover {
@@ -160,16 +154,12 @@ body.fade-out {
 }
 
 /* =====================
-   MOBILE FIX
+   MOBILE
 ===================== */
 @media (max-width: 768px) {
     .scene-visual img {
-        width: 85vw;
-        max-height: 32vh;
-    }
-
-    .scene-title {
-        font-size: 22px;
+        width: 90vw;
+        max-height: 34vh;
     }
 }
 </style>
@@ -179,36 +169,48 @@ body.fade-out {
 
 <div class="scene">
 
+    <!-- TOP BAR -->
     <div class="top-bar">
         <button onclick="goHome()">← Home</button>
         <button onclick="goBack()">← Back</button>
     </div>
 
+    <!-- TITLE -->
     <div class="scene-title">
-        BEDB - ISM
+        Business Assessment and Allocation (BAA)
     </div>
 
+    <!-- VISUAL (OPTIONAL) -->
     <div class="scene-visual">
-        <img src="scene2.png" alt="Researching BEDB and ISM">
+        <!-- Optional image -->
+        <!-- <img src="scene4-baa.png" alt="Meeting with BAA team"> -->
     </div>
 
+    <!-- DIALOGUE -->
     <div class="dialogue-box">
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            While researching potential solutions, <strong>MC</strong> comes across the
-            <span class="highlight-bedb">Brunei Economic Development Board (BEDB)</span>.<br><br>
+            MC is welcomed by the
+            <span class="highlight-baa">Business Assessment and Allocation (BAA)</span>
+            team at BEDB.<br><br>
 
-            He discovers that BEDB offers various spaces tailored for businesses — whether it’s
-            <strong>industrial land</strong> for long-term development, or a
-            <strong>ready-built factory</strong> for faster setup and immediate operations.<br><br>
+            The team patiently walks him through the
+            <strong>application process</strong>, helping him prepare the necessary documents
+            and clarify the requirements based on his business needs.<br><br>
 
-            More importantly, MC learns that under BEDB, there is a dedicated department called
-            <span class="highlight-ism">Industrial Site Management (ISM)</span> — a team that assists tenants
-            with site matters, facilities, and operational challenges as their businesses grow.<br><br>
+            His proposal then goes through a
+            <strong>screening and assessment</strong> stage, where the BAA team evaluates the
+            viability of his business plan, operational readiness, and site requirements.<br><br>
 
-            With a clearer path ahead, MC decides to drop by the BEDB office tomorrow to meet an
-            ISM representative and learn more about the support available.
+            With guidance provided at every step, MC gains a clearer understanding of what is
+            expected — and how to strengthen his application.<br><br>
+
+            After the assessment, the BAA team assists in the
+            <strong>allocation process</strong>, identifying a suitable site that aligns with
+            his business objectives and growth plans.<br><br>
+
+            What once felt overwhelming now feels structured, supported, and achievable.
         </div>
 
         <div class="dialogue-actions">
@@ -226,12 +228,12 @@ function goHome() {
 
 function goBack() {
     document.body.classList.add("fade-out");
-    setTimeout(() => window.location.href = "scene1.html", 600);
+    setTimeout(() => window.location.href = "scene3.html", 600);
 }
 
 function nextScene() {
     document.body.classList.add("fade-out");
-    setTimeout(() => window.location.href = "scene3.html", 600);
+    setTimeout(() => window.location.href = "scene5.html", 600);
 }
 </script>
 

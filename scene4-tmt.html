@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BEDB - ISM</title>
+<title>Scene 3 — Arriving at BEDB HQ</title>
 
 <style>
 /* =====================
@@ -52,7 +52,6 @@ body.fade-out {
 ===================== */
 .top-bar {
     display: flex;
-    align-items: center;
     gap: 12px;
 }
 
@@ -76,40 +75,28 @@ body.fade-out {
 ===================== */
 .scene-title {
     text-align: center;
-    font-size: clamp(22px, 3.2vw, 34px);
-    margin-top: 16px;
+    font-size: clamp(22px, 3vw, 34px);
+    margin-top: 12px;   /* RAISED */
     margin-bottom: 10px;
     letter-spacing: 0.5px;
 }
 
 /* =====================
-   SCENE VISUAL
+   VISUAL
 ===================== */
 .scene-visual {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
 }
 
 .scene-visual img {
-    width: min(60vw, 420px);
-    max-height: 38vh;
+    width: min(70vw, 420px);   /* SMALLER IMAGE */
+    max-height: 40vh;
     object-fit: contain;
     image-rendering: pixelated;
-    filter: drop-shadow(0 0 20px rgba(255, 215, 120, 0.25));
-}
-
-/* Highlight keywords */
-.highlight-bedb {
-    color: #ffd56b;
-    font-weight: bold;
-}
-
-.highlight-ism {
-    color: rgb(0, 145, 99);
-    font-weight: bold;
+    filter: drop-shadow(0 0 24px rgba(255, 215, 120, 0.35));
 }
 
 /* =====================
@@ -118,58 +105,78 @@ body.fade-out {
 .dialogue-box {
     width: 100%;
     max-width: 1100px;
-    margin: 0 auto 20px;
+    margin: 0 auto 18px;
     background: rgba(20, 20, 20, 0.92);
     border-radius: 16px;
     padding: clamp(14px, 2.5vw, 22px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.8);
 }
 
+/* Speaker */
 .speaker {
     font-weight: bold;
     margin-bottom: 8px;
     color: #ffd56b;
 }
 
+/* Dialogue text */
 .dialogue-text {
     font-size: clamp(14px, 2.2vw, 17px);
     line-height: 1.55;
 }
 
 /* =====================
-   ACTION BUTTON
+   CHOICE BUTTONS
 ===================== */
-.dialogue-actions {
-    text-align: right;
-    margin-top: 14px;
+.choice-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 22px;
 }
 
-.dialogue-actions button {
-    font-size: 14px;
-    padding: 8px 20px;
+/* Gold button */
+.btn-gold {
+    padding: 16px 36px;
+    border-radius: 999px;
     border: none;
-    border-radius: 10px;
-    background: linear-gradient(145deg, #3a3a3a, #1f1f1f);
-    color: white;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+    color: white;
+    background: linear-gradient(180deg, #f1c40f, #c89b00);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.6);
 }
 
-.dialogue-actions button:hover {
-    transform: translateY(-1px);
+/* Blue button */
+.btn-blue {
+    padding: 16px 36px;
+    border-radius: 999px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(180deg, #0fa3c9, #066c88);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.6);
+}
+
+.choice-buttons button:hover {
+    transform: translateY(-2px);
 }
 
 /* =====================
    MOBILE FIX
 ===================== */
 @media (max-width: 768px) {
-    .scene-visual img {
-        width: 85vw;
-        max-height: 32vh;
+    .choice-buttons {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .scene-title {
-        font-size: 22px;
+    .choice-buttons button {
+        width: 70%;
+        text-align: center;
     }
 }
 </style>
@@ -179,40 +186,41 @@ body.fade-out {
 
 <div class="scene">
 
+    <!-- TOP BAR -->
     <div class="top-bar">
         <button onclick="goHome()">← Home</button>
         <button onclick="goBack()">← Back</button>
     </div>
 
+    <!-- TITLE -->
     <div class="scene-title">
-        BEDB - ISM
+        Scene 3 — Arriving at BEDB HQ
     </div>
 
+    <!-- VISUAL -->
     <div class="scene-visual">
-        <img src="scene2.png" alt="Researching BEDB and ISM">
+        <img src="scene3-bedb-hq.png" alt="MC arriving at BEDB HQ">
     </div>
 
+    <!-- DIALOGUE -->
     <div class="dialogue-box">
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            While researching potential solutions, <strong>MC</strong> comes across the
-            <span class="highlight-bedb">Brunei Economic Development Board (BEDB)</span>.<br><br>
+            The next morning, MC arrives at the
+            <span style="color:#ffd56b;font-weight:bold;">
+                Brunei Economic Development Board (BEDB)
+            </span>
+            headquarters.<br><br>
 
-            He discovers that BEDB offers various spaces tailored for businesses — whether it’s
-            <strong>industrial land</strong> for long-term development, or a
-            <strong>ready-built factory</strong> for faster setup and immediate operations.<br><br>
-
-            More importantly, MC learns that under BEDB, there is a dedicated department called
-            <span class="highlight-ism">Industrial Site Management (ISM)</span> — a team that assists tenants
-            with site matters, facilities, and operational challenges as their businesses grow.<br><br>
-
-            With a clearer path ahead, MC decides to drop by the BEDB office tomorrow to meet an
-            ISM representative and learn more about the support available.
+            He takes a moment to gather his thoughts.
+            The next conversation could shape the future of his business journey.
         </div>
 
-        <div class="dialogue-actions">
-            <button onclick="nextScene()">Continue ▶</button>
+        <!-- CHOICES -->
+        <div class="choice-buttons">
+            <button class="btn-gold" onclick="meetBAA()">BAA</button>
+            <button class="btn-blue" onclick="meetTMT()">TMT</button>
         </div>
     </div>
 
@@ -221,17 +229,30 @@ body.fade-out {
 <script>
 function goHome() {
     document.body.classList.add("fade-out");
-    setTimeout(() => window.location.href = "index.html", 600);
+    setTimeout(() => {
+        window.location.href = "index.html";
+    }, 600);
 }
 
 function goBack() {
     document.body.classList.add("fade-out");
-    setTimeout(() => window.location.href = "scene1.html", 600);
+    setTimeout(() => {
+        window.location.href = "scene2.html";
+    }, 600);
 }
 
-function nextScene() {
+function meetBAA() {
     document.body.classList.add("fade-out");
-    setTimeout(() => window.location.href = "scene3.html", 600);
+    setTimeout(() => {
+        window.location.href = "scene4-baa.html";
+    }, 600);
+}
+
+function meetTMT() {
+    document.body.classList.add("fade-out");
+    setTimeout(() => {
+        window.location.href = "scene4-tmt.html";
+    }, 600);
 }
 </script>
 
