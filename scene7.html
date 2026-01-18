@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Scene 7 — Meeting with TMT</title>
+
+<style>
+/* ==================================================
+   GLOBAL RESET & BASE
+================================================== */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    background: radial-gradient(circle at top, #1c1c1c 0%, #000 65%);
+    color: #fff;
+    overflow: hidden;
+}
+
+/* ==================================================
+   FADE TRANSITION
+================================================== */
+body {
+    opacity: 1;
+    transition: opacity 0.6s ease;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+/* ==================================================
+   SCENE LAYOUT
+================================================== */
+.scene {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: clamp(16px, 4vw, 50px);
+}
+
+/* ==================================================
+   TOP BAR
+================================================== */
+.top-bar {
+    display: flex;
+    gap: 12px;
+}
+
+.top-bar button {
+    background: rgba(40, 40, 40, 0.9);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    color: white;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.top-bar button:hover {
+    background: rgba(70, 70, 70, 0.95);
+    transform: translateY(-1px);
+}
+
+/* ==================================================
+   SCENE TITLE
+================================================== */
+.scene-title {
+    text-align: center;
+    font-size: clamp(22px, 3vw, 36px);
+    margin: 18px 0 6px;
+    letter-spacing: 0.6px;
+}
+
+/* ==================================================
+   VISUAL (SYMBOLIC)
+================================================== */
+.scene-visual {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    opacity: 0.45;
+}
+
+/* ==================================================
+   DIALOGUE BOX
+================================================== */
+.dialogue-box {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 22px;
+    background: rgba(18, 18, 18, 0.95);
+    border-radius: 18px;
+    padding: clamp(16px, 2.5vw, 24px);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.85);
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.speaker {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffd56b;
+    letter-spacing: 0.4px;
+}
+
+.dialogue-text {
+    font-size: clamp(15px, 2.4vw, 18px);
+    line-height: 1.6;
+    color: #eaeaea;
+}
+
+/* ==================================================
+   ACTION BUTTON
+================================================== */
+.dialogue-actions {
+    text-align: right;
+    margin-top: 26px;
+}
+
+.dialogue-actions button {
+    padding: 10px 26px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(145deg, #262626, #121212);
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.65);
+}
+
+.dialogue-actions button:hover {
+    transform: translateY(-1px);
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+@media (max-width: 768px) {
+    .scene-title {
+        font-size: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <button onclick="goHome()">← Home</button>
+        <button onclick="goBack()">← Back</button>
+    </div>
+
+    <!-- TITLE -->
+    <div class="scene-title">
+        Meeting with TMT
+    </div>
+
+    <!-- VISUAL -->
+    <div class="scene-visual">
+        📝
+    </div>
+
+    <!-- DIALOGUE -->
+    <div class="dialogue-box">
+        <div class="speaker">Narrator</div>
+
+        <div class="dialogue-text">
+            MC is greeted by the Tenant Management Team upon his arrival.<br><br>
+
+            The discussion focuses on clarifying key terms, responsibilities, and expectations
+            related to the arrangement ahead.<br><br>
+
+            With all questions addressed, MC and the TMT representative proceed to review
+            the necessary documents together.<br><br>
+
+            After taking the time to ensure mutual understanding, both parties sign off on
+            the agreement, marking the completion of this stage of the process.
+        </div>
+
+        <div class="dialogue-actions">
+            <button onclick="goNext()">Continue ▶</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function goHome() {
+    document.body.classList.add("fade-out");
+    setTimeout(() => window.location.href = "index.html", 600);
+}
+
+function goBack() {
+    document.body.classList.add("fade-out");
+    setTimeout(() => window.location.href = "scene6.html", 600);
+}
+
+function goNext() {
+    document.body.classList.add("fade-out");
+    setTimeout(() => window.location.href = "scene8.html", 600);
+}
+</script>
+
+</body>
+</html>
