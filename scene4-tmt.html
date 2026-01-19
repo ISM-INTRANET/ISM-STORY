@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Wrong Direction</title>
+<title>At the Wrong Desk</title>
 
 <style>
 /* =====================
@@ -19,8 +19,8 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-    background: radial-gradient(circle at top, #1a1a1a, #000);
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    background: radial-gradient(circle at top, #1c1c1c, #000);
     color: white;
     overflow: hidden;
 }
@@ -56,11 +56,11 @@ body.fade-out {
 }
 
 .top-bar button {
-    background: rgba(40, 40, 40, 0.85);
-    border: none;
-    border-radius: 10px;
+    background: rgba(40, 40, 40, 0.9);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
     color: white;
-    padding: 8px 14px;
+    padding: 8px 16px;
     cursor: pointer;
     font-size: 14px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.6);
@@ -76,8 +76,7 @@ body.fade-out {
 .scene-title {
     text-align: center;
     font-size: clamp(22px, 3vw, 34px);
-    margin-top: 12px;
-    margin-bottom: 10px;
+    margin: 18px 0 8px;
     letter-spacing: 0.5px;
 }
 
@@ -106,55 +105,67 @@ body.fade-out {
     width: 100%;
     max-width: 1100px;
     margin: 0 auto 18px;
-    background: rgba(20, 20, 20, 0.92);
-    border-radius: 16px;
-    padding: clamp(14px, 2.5vw, 22px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    background: rgba(18, 18, 18, 0.95);
+    border-radius: 18px;
+    padding: clamp(16px, 2.5vw, 24px);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.85);
 }
 
 /* Speaker */
 .speaker {
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     color: #ffd56b;
 }
 
 /* Dialogue text */
 .dialogue-text {
     font-size: clamp(14px, 2.2vw, 17px);
-    line-height: 1.55;
+    line-height: 1.6;
+    color: #eaeaea;
 }
 
 /* =====================
-   ACTION BUTTON
+   CHOICE BUTTONS
 ===================== */
-.dialogue-actions {
-    text-align: right;
-    margin-top: 22px;
+.choice-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 26px;
 }
 
-.dialogue-actions button {
-    padding: 14px 34px;
-    border-radius: 999px;
-    border: none;
-    font-size: 17px;
+.choice-buttons button {
+    flex: 1;
+    padding: 18px 0;
+    font-size: clamp(16px, 2.4vw, 20px);
     font-weight: bold;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 215, 120, 0.25);
     cursor: pointer;
-    color: white;
-    background: linear-gradient(180deg, #f1c40f, #c89b00);
-    box-shadow: 0 10px 24px rgba(0,0,0,0.6);
+    color: #f2f2f2;
+    background: linear-gradient(145deg, #262626, #121212);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.75);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
 }
 
-.dialogue-actions button:hover {
-    transform: translateY(-2px);
+.choice-buttons button:hover {
+    transform: translateY(-3px);
+    border: 1px solid rgba(255, 215, 120, 0.8);
+    box-shadow:
+        0 16px 42px rgba(0,0,0,0.9),
+        0 0 28px rgba(255,215,120,0.45);
+}
+
+.choice-buttons button:active {
+    transform: translateY(1px);
 }
 
 /* =====================
-   MOBILE FIX
+   MOBILE STACK
 ===================== */
 @media (max-width: 768px) {
-    .dialogue-actions {
-        text-align: center;
+    .choice-buttons {
+        flex-direction: column;
     }
 }
 </style>
@@ -177,7 +188,7 @@ body.fade-out {
 
     <!-- VISUAL -->
     <div class="scene-visual">
-        <img src="scene3-bedb-hq.png" alt="BEDB HQ lobby">
+        <img src="scene4-tmt.png" alt="Meeting the wrong team at BEDB">
     </div>
 
     <!-- DIALOGUE -->
@@ -185,22 +196,24 @@ body.fade-out {
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            You are politely greeted, but it quickly becomes clear that this may not be
-            the right place to start.<br><br>
+            You are greeted by an officer who listens carefully as you explain your interest
+            in securing a space for your business.<br><br>
 
-            As the conversation continues, you realise that your visit is
-            <strong>not related to an application or assessment process</strong> —
-            which is what you are actually here for.<br><br>
+            As the discussion unfolds, it becomes clear that this team focuses on
+            <strong>tenant matters</strong>, rather than handling
+            <strong>business applications and assessments</strong>.<br><br>
 
-            With a brief clarification, you are advised to speak with a different team
-            that handles business applications and evaluations.<br><br>
+            The officer politely explains that applications are managed by a different team
+            and points you toward the right starting point.<br><br>
 
-            You thank them for the guidance and prepare to head back,
-            now with a better idea of where to go next.
+            With this clarification, you step back into the lobby—now better informed
+            and ready to approach the correct team.
         </div>
 
-        <div class="dialogue-actions">
-            <button onclick="returnToArrival()">Continue ▶</button>
+        <!-- CHOICES -->
+        <div class="choice-buttons">
+            <button onclick="goBAA()">Business Assessment & Allocation</button>
+            <button onclick="stayTMT()">Tenant Management</button>
         </div>
     </div>
 
@@ -209,23 +222,22 @@ body.fade-out {
 <script>
 function goHome() {
     document.body.classList.add("fade-out");
-    setTimeout(() => {
-        window.location.href = "index.html";
-    }, 600);
+    setTimeout(() => window.location.href = "index.html", 600);
 }
 
 function goBack() {
     document.body.classList.add("fade-out");
-    setTimeout(() => {
-        window.location.href = "scene3.html";
-    }, 600);
+    setTimeout(() => window.location.href = "scene3.html", 600);
 }
 
-function returnToArrival() {
+function goBAA() {
     document.body.classList.add("fade-out");
-    setTimeout(() => {
-        window.location.href = "scene3.html";
-    }, 600);
+    setTimeout(() => window.location.href = "scene4.html", 600);
+}
+
+function stayTMT() {
+    document.body.classList.add("fade-out");
+    setTimeout(() => window.location.href = "scene4-tmt.html", 600);
 }
 </script>
 
