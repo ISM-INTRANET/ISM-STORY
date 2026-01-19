@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Scene 3 — Arriving at BEDB HQ</title>
+<title>Wrong Direction</title>
 
 <style>
 /* =====================
@@ -76,7 +76,7 @@ body.fade-out {
 .scene-title {
     text-align: center;
     font-size: clamp(22px, 3vw, 34px);
-    margin-top: 12px;   /* RAISED */
+    margin-top: 12px;
     margin-bottom: 10px;
     letter-spacing: 0.5px;
 }
@@ -92,7 +92,7 @@ body.fade-out {
 }
 
 .scene-visual img {
-    width: min(70vw, 420px);   /* SMALLER IMAGE */
+    width: min(70vw, 420px);
     max-height: 40vh;
     object-fit: contain;
     image-rendering: pixelated;
@@ -126,21 +126,18 @@ body.fade-out {
 }
 
 /* =====================
-   CHOICE BUTTONS
+   ACTION BUTTON
 ===================== */
-.choice-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
+.dialogue-actions {
+    text-align: right;
     margin-top: 22px;
 }
 
-/* Gold button */
-.btn-gold {
-    padding: 16px 36px;
+.dialogue-actions button {
+    padding: 14px 34px;
     border-radius: 999px;
     border: none;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: bold;
     cursor: pointer;
     color: white;
@@ -148,20 +145,7 @@ body.fade-out {
     box-shadow: 0 10px 24px rgba(0,0,0,0.6);
 }
 
-/* Blue button */
-.btn-blue {
-    padding: 16px 36px;
-    border-radius: 999px;
-    border: none;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    color: white;
-    background: linear-gradient(180deg, #0fa3c9, #066c88);
-    box-shadow: 0 10px 24px rgba(0,0,0,0.6);
-}
-
-.choice-buttons button:hover {
+.dialogue-actions button:hover {
     transform: translateY(-2px);
 }
 
@@ -169,13 +153,7 @@ body.fade-out {
    MOBILE FIX
 ===================== */
 @media (max-width: 768px) {
-    .choice-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .choice-buttons button {
-        width: 70%;
+    .dialogue-actions {
         text-align: center;
     }
 }
@@ -194,12 +172,12 @@ body.fade-out {
 
     <!-- TITLE -->
     <div class="scene-title">
-        Scene 3 — Arriving at BEDB HQ
+        At the Wrong Desk
     </div>
 
     <!-- VISUAL -->
     <div class="scene-visual">
-        <img src="scene3-bedb-hq.png" alt="MC arriving at BEDB HQ">
+        <img src="scene3-bedb-hq.png" alt="BEDB HQ lobby">
     </div>
 
     <!-- DIALOGUE -->
@@ -207,20 +185,22 @@ body.fade-out {
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            The next morning, MC arrives at the
-            <span style="color:#ffd56b;font-weight:bold;">
-                Brunei Economic Development Board (BEDB)
-            </span>
-            headquarters.<br><br>
+            You are politely greeted, but it quickly becomes clear that this may not be
+            the right place to start.<br><br>
 
-            He takes a moment to gather his thoughts.
-            The next conversation could shape the future of his business journey.
+            As the conversation continues, you realise that your visit is
+            <strong>not related to an application or assessment process</strong> —
+            which is what you are actually here for.<br><br>
+
+            With a brief clarification, you are advised to speak with a different team
+            that handles business applications and evaluations.<br><br>
+
+            You thank them for the guidance and prepare to head back,
+            now with a better idea of where to go next.
         </div>
 
-        <!-- CHOICES -->
-        <div class="choice-buttons">
-            <button class="btn-gold" onclick="meetBAA()">BAA</button>
-            <button class="btn-blue" onclick="meetTMT()">TMT</button>
+        <div class="dialogue-actions">
+            <button onclick="returnToArrival()">Continue ▶</button>
         </div>
     </div>
 
@@ -237,21 +217,14 @@ function goHome() {
 function goBack() {
     document.body.classList.add("fade-out");
     setTimeout(() => {
-        window.location.href = "scene2.html";
+        window.location.href = "scene3.html";
     }, 600);
 }
 
-function meetBAA() {
+function returnToArrival() {
     document.body.classList.add("fade-out");
     setTimeout(() => {
-        window.location.href = "scene4-baa.html";
-    }, 600);
-}
-
-function meetTMT() {
-    document.body.classList.add("fade-out");
-    setTimeout(() => {
-        window.location.href = "scene4-tmt.html";
+        window.location.href = "scene3.html";
     }, 600);
 }
 </script>

@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BAA Assistance</title>
+<title>Business Assessment and Allocation</title>
 
 <style>
-/* =====================
-   GLOBAL RESET
-===================== */
+/* ==================================================
+   GLOBAL RESET & BASE
+================================================== */
 * {
     box-sizing: border-box;
 }
@@ -20,14 +20,14 @@ html, body {
     width: 100%;
     height: 100%;
     font-family: "Segoe UI", Arial, Helvetica, sans-serif;
-    background: radial-gradient(circle at top, #1c1c1c, #000);
-    color: white;
+    background: radial-gradient(circle at top, #1c1c1c 0%, #000 65%);
+    color: #fff;
     overflow: hidden;
 }
 
-/* =====================
+/* ==================================================
    FADE TRANSITION
-===================== */
+================================================== */
 body {
     opacity: 1;
     transition: opacity 0.6s ease;
@@ -37,9 +37,9 @@ body.fade-out {
     opacity: 0;
 }
 
-/* =====================
+/* ==================================================
    SCENE LAYOUT
-===================== */
+================================================== */
 .scene {
     min-height: 100vh;
     display: flex;
@@ -47,9 +47,9 @@ body.fade-out {
     padding: clamp(16px, 4vw, 50px);
 }
 
-/* =====================
+/* ==================================================
    TOP BAR
-===================== */
+================================================== */
 .top-bar {
     display: flex;
     gap: 12px;
@@ -64,15 +64,17 @@ body.fade-out {
     cursor: pointer;
     font-size: 14px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .top-bar button:hover {
     background: rgba(70, 70, 70, 0.95);
+    transform: translateY(-1px);
 }
 
-/* =====================
+/* ==================================================
    SCENE TITLE
-===================== */
+================================================== */
 .scene-title {
     text-align: center;
     font-size: clamp(22px, 3vw, 34px);
@@ -80,9 +82,9 @@ body.fade-out {
     letter-spacing: 0.5px;
 }
 
-/* =====================
-   SCENE VISUAL (OPTIONAL IMAGE)
-===================== */
+/* ==================================================
+   SCENE VISUAL
+================================================== */
 .scene-visual {
     flex: 1;
     display: flex;
@@ -99,9 +101,9 @@ body.fade-out {
         drop-shadow(0 0 80px rgba(0, 0, 0, 0.7));
 }
 
-/* =====================
+/* ==================================================
    DIALOGUE BOX
-===================== */
+================================================== */
 .dialogue-box {
     width: 100%;
     max-width: 1100px;
@@ -110,12 +112,14 @@ body.fade-out {
     border-radius: 18px;
     padding: clamp(16px, 2.5vw, 24px);
     box-shadow: 0 14px 40px rgba(0,0,0,0.85);
+    border: 1px solid rgba(255,255,255,0.06);
 }
 
 .speaker {
     font-weight: bold;
     margin-bottom: 10px;
     color: #ffd56b;
+    letter-spacing: 0.4px;
 }
 
 .dialogue-text {
@@ -130,12 +134,12 @@ body.fade-out {
     font-weight: bold;
 }
 
-/* =====================
+/* ==================================================
    ACTION BUTTON
-===================== */
+================================================== */
 .dialogue-actions {
     text-align: right;
-    margin-top: 20px;
+    margin-top: 22px;
 }
 
 .dialogue-actions button {
@@ -143,19 +147,20 @@ body.fade-out {
     padding: 10px 26px;
     border: none;
     border-radius: 12px;
-    background: linear-gradient(145deg, #2e2e2e, #151515);
+    background: linear-gradient(145deg, #262626, #121212);
     color: white;
     cursor: pointer;
     box-shadow: 0 8px 20px rgba(0,0,0,0.65);
+    transition: transform 0.2s ease;
 }
 
 .dialogue-actions button:hover {
     transform: translateY(-1px);
 }
 
-/* =====================
+/* ==================================================
    MOBILE
-===================== */
+================================================== */
 @media (max-width: 768px) {
     .scene-visual img {
         width: 90vw;
@@ -180,10 +185,9 @@ body.fade-out {
         Business Assessment and Allocation (BAA)
     </div>
 
-    <!-- VISUAL (OPTIONAL) -->
+    <!-- VISUAL -->
     <div class="scene-visual">
-        <!-- Optional image -->
-        <!-- <img src="scene4-baa.png" alt="Meeting with BAA team"> -->
+        <img src="scene4.png" alt="Meeting with BAA team">
     </div>
 
     <!-- DIALOGUE -->
@@ -191,26 +195,23 @@ body.fade-out {
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            MC is welcomed by the
+            You are welcomed by the
             <span class="highlight-baa">Business Assessment and Allocation (BAA)</span>
             team at BEDB.<br><br>
 
-            The team patiently walks him through the
-            <strong>application process</strong>, helping him prepare the necessary documents
-            and clarify the requirements based on his business needs.<br><br>
+            They guide you through the application process step by step, helping you prepare
+            the necessary documents and clarifying requirements based on your business needs.<br><br>
 
-            His proposal then goes through a
-            <strong>screening and assessment</strong> stage, where the BAA team evaluates the
-            viability of his business plan, operational readiness, and site requirements.<br><br>
+            Your proposal then moves into the screening and assessment stage, where your business
+            plan, operational readiness, and site requirements are carefully reviewed.<br><br>
 
-            With guidance provided at every step, MC gains a clearer understanding of what is
-            expected — and how to strengthen his application.<br><br>
+            Along the way, you gain a clearer understanding of what is expected — and how your
+            application can be strengthened to meet those expectations.<br><br>
 
-            After the assessment, the BAA team assists in the
-            <strong>allocation process</strong>, identifying a suitable site that aligns with
-            his business objectives and growth plans.<br><br>
+            Once the assessment is complete, the BAA team supports the allocation process,
+            identifying a site that aligns with your business objectives and future growth plans.<br><br>
 
-            What once felt overwhelming now feels structured, supported, and achievable.
+            What initially felt complex and uncertain now feels structured, supported, and within reach.
         </div>
 
         <div class="dialogue-actions">
