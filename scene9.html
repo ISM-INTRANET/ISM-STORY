@@ -8,7 +8,7 @@
 
 <style>
 /* ==================================================
-   GLOBAL RESET & BASE
+   GLOBAL RESET & BASE (MATCH SCENE 4)
 ================================================== */
 * {
     box-sizing: border-box;
@@ -22,7 +22,6 @@ html, body {
     font-family: "Segoe UI", Arial, Helvetica, sans-serif;
     background: radial-gradient(circle at top, #1c1c1c 0%, #000 65%);
     color: #fff;
-    overflow: hidden;
 }
 
 /* ==================================================
@@ -44,7 +43,7 @@ body.fade-out {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: clamp(16px, 4vw, 50px);
+    padding: clamp(18px, 4vw, 48px);
 }
 
 /* ==================================================
@@ -64,21 +63,15 @@ body.fade-out {
     cursor: pointer;
     font-size: 14px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.top-bar button:hover {
-    background: rgba(70, 70, 70, 0.95);
-    transform: translateY(-1px);
 }
 
 /* ==================================================
-   SCENE TITLE
+   TITLE
 ================================================== */
 .scene-title {
     text-align: center;
-    font-size: clamp(22px, 3vw, 36px);
-    margin: 18px 0 6px;
+    font-size: clamp(24px, 3.5vw, 36px);
+    margin: 16px 0 18px;
     letter-spacing: 0.6px;
 }
 
@@ -90,8 +83,11 @@ body.fade-out {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 64px;
-    opacity: 0.45;
+}
+
+.scene-visual span {
+    font-size: clamp(44px, 6vw, 56px);
+    opacity: 0.5;
 }
 
 /* ==================================================
@@ -100,24 +96,23 @@ body.fade-out {
 .dialogue-box {
     width: 100%;
     max-width: 1100px;
-    margin: 0 auto 22px;
+    margin: 0 auto 16px;
     background: rgba(18, 18, 18, 0.95);
     border-radius: 18px;
-    padding: clamp(16px, 2.5vw, 24px);
+    padding: clamp(16px, 3vw, 22px);
     box-shadow: 0 14px 40px rgba(0,0,0,0.85);
     border: 1px solid rgba(255,255,255,0.06);
 }
 
 .speaker {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     color: #ffd56b;
-    letter-spacing: 0.4px;
 }
 
 .dialogue-text {
-    font-size: clamp(15px, 2.4vw, 18px);
-    line-height: 1.6;
+    font-size: clamp(15px, 2.3vw, 17px);
+    line-height: 1.5;
     color: #eaeaea;
 }
 
@@ -126,68 +121,45 @@ body.fade-out {
 ================================================== */
 .choice-buttons {
     display: flex;
-    gap: 20px;
-    margin-top: 26px;
+    gap: 18px;
+    margin-top: 18px;
 }
 
 .choice-buttons button {
-    position: relative;
-    overflow: hidden;
     flex: 1;
-    padding: 26px 0;
-    font-size: clamp(17px, 2.4vw, 20px);
+    padding: 18px 0;
+    font-size: clamp(16px, 2.4vw, 19px);
     font-weight: bold;
-    border-radius: 18px;
+    border-radius: 16px;
     border: 1px solid rgba(255, 215, 120, 0.25);
     cursor: pointer;
     color: #f2f2f2;
-
-    background: linear-gradient(
-        145deg,
-        #262626,
-        #121212
-    );
-
-    box-shadow:
-        0 10px 26px rgba(0,0,0,0.75);
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border 0.25s ease;
-}
-
-.choice-buttons button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -130%;
-    width: 130%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255, 215, 120, 0.28),
-        transparent
-    );
-    transition: left 0.6s ease;
+    background: linear-gradient(145deg, #262626, #121212);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.75);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
 }
 
 .choice-buttons button:hover {
-    transform: translateY(-3px) scale(1.02);
+    transform: translateY(-2px);
     border: 1px solid rgba(255, 215, 120, 0.8);
     box-shadow:
-        0 16px 42px rgba(0,0,0,0.9),
-        0 0 28px rgba(255,215,120,0.45);
-}
-
-.choice-buttons button:hover::before {
-    left: 130%;
+        0 14px 36px rgba(0,0,0,0.9),
+        0 0 24px rgba(255,215,120,0.45);
 }
 
 /* ==================================================
-   MOBILE
+   SHORT SCREEN / ZOOM SAFETY
 ================================================== */
+@media (max-height: 720px) {
+    body {
+        overflow-y: auto;
+    }
+
+    .scene-visual span {
+        font-size: 36px;
+    }
+}
+
 @media (max-width: 768px) {
     .choice-buttons {
         flex-direction: column;
@@ -200,35 +172,39 @@ body.fade-out {
 
 <div class="scene">
 
+    <!-- TOP BAR -->
     <div class="top-bar">
         <button onclick="goHome()">← Home</button>
         <button onclick="goBack()">← Back</button>
     </div>
 
+    <!-- TITLE -->
     <div class="scene-title">
         Facilities Issue
     </div>
 
+    <!-- VISUAL -->
     <div class="scene-visual">
-        🚰 ❄️
+        <span>🚰 ❄️</span>
     </div>
 
+    <!-- DIALOGUE -->
     <div class="dialogue-box">
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            MC has been a tenant under BEDB for quite some time now, settling into his office
-            at ADTP and focusing on day-to-day operations.<br><br>
+            You have been operating from your office at ADTP for some time now,
+            focusing on day-to-day business activities.<br><br>
 
-            One morning, he notices that the air-conditioner in his office is no longer working.
-            Shortly after, he realises there is also no water supply in the office toilet.<br><br>
+            One morning, you notice that the air-conditioner in your office is no longer working.
+            Shortly after, you realise there is also no water supply in the office toilet.<br><br>
 
-            Concerned that these issues may affect daily operations, MC considers who he should
-            reach out to within the ISM team for assistance.
+            Recognising that these issues may affect daily operations,
+            you consider who within the ISM team you should contact for assistance.
         </div>
 
         <div class="choice-buttons">
-            <button onclick="wrongAnswer()">Business Application Assistance (BAA)</button>
+            <button onclick="wrongAnswer()">Business Assessment & Allocation (BAA)</button>
             <button onclick="wrongAnswer()">Tenant Management Team (TMT)</button>
             <button onclick="correctAnswer()">Facilities Management Team (FMT)</button>
         </div>

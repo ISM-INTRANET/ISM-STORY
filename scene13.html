@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Your Business Journey Begins</title>
+<title>Meeting with Industry Cluster Development</title>
 
 <style>
 /* ==================================================
@@ -22,6 +22,7 @@ html, body {
     font-family: "Segoe UI", Arial, Helvetica, sans-serif;
     background: radial-gradient(circle at top, #1c1c1c 0%, #000 65%);
     color: #fff;
+    overflow: hidden;
 }
 
 /* ==================================================
@@ -37,13 +38,13 @@ body.fade-out {
 }
 
 /* ==================================================
-   SCENE LAYOUT (MATCHES SCENE 4)
+   SCENE LAYOUT
 ================================================== */
 .scene {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: clamp(18px, 4vw, 48px);
+    padding: clamp(16px, 4vw, 48px);
 }
 
 /* ==================================================
@@ -51,6 +52,7 @@ body.fade-out {
 ================================================== */
 .top-bar {
     display: flex;
+    gap: 12px;
 }
 
 .top-bar button {
@@ -64,46 +66,42 @@ body.fade-out {
     box-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
 
+.top-bar button:hover {
+    background: rgba(70, 70, 70, 0.95);
+}
+
 /* ==================================================
    TITLE
 ================================================== */
 .scene-title {
     text-align: center;
-    font-size: clamp(24px, 3.5vw, 36px);
-    margin: 16px 0 18px;
+    font-size: clamp(22px, 3vw, 36px);
+    margin: 16px 0 8px;
     letter-spacing: 0.6px;
 }
 
 /* ==================================================
-   VISUAL
+   VISUAL (SYMBOLIC)
 ================================================== */
 .scene-visual {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.scene-visual img {
-    width: min(82vw, 520px);
-    max-height: 42vh;
-    object-fit: contain;
-    image-rendering: pixelated;
-    filter:
-        drop-shadow(0 0 28px rgba(255, 215, 120, 0.3))
-        drop-shadow(0 0 70px rgba(0, 0, 0, 0.7));
+    font-size: clamp(60px, 9vw, 76px);
+    opacity: 0.55;
 }
 
 /* ==================================================
-   DIALOGUE BOX (COMPACT LIKE SCENE 4)
+   DIALOGUE BOX
 ================================================== */
 .dialogue-box {
     width: 100%;
     max-width: 1100px;
-    margin: 0 auto 16px;
+    margin: 0 auto 18px;
     background: rgba(18, 18, 18, 0.95);
     border-radius: 18px;
-    padding: clamp(16px, 3vw, 22px);
+    padding: clamp(16px, 2.5vw, 22px);
     box-shadow: 0 14px 40px rgba(0,0,0,0.85);
     border: 1px solid rgba(255,255,255,0.06);
 }
@@ -115,8 +113,8 @@ body.fade-out {
 }
 
 .dialogue-text {
-    font-size: clamp(14px, 2.2vw, 16px);
-    line-height: 1.5;
+    font-size: clamp(15px, 2.4vw, 18px);
+    line-height: 1.6;
     color: #eaeaea;
 }
 
@@ -124,12 +122,12 @@ body.fade-out {
    ACTION BUTTON
 ================================================== */
 .dialogue-actions {
-    margin-top: 16px;
     text-align: right;
+    margin-top: 18px;
 }
 
 .dialogue-actions button {
-    font-size: 14px;
+    font-size: 15px;
     padding: 10px 26px;
     border-radius: 12px;
     border: none;
@@ -144,15 +142,11 @@ body.fade-out {
 }
 
 /* ==================================================
-   ZOOM & SHORT SCREEN SAFETY
+   SHORT SCREEN SAFETY
 ================================================== */
 @media (max-height: 720px) {
     body {
         overflow-y: auto;
-    }
-
-    .scene-visual img {
-        max-height: 34vh;
     }
 }
 </style>
@@ -165,16 +159,17 @@ body.fade-out {
     <!-- TOP BAR -->
     <div class="top-bar">
         <button onclick="goHome()">← Home</button>
+        <button onclick="goBack()">← Back</button>
     </div>
 
     <!-- TITLE -->
     <div class="scene-title">
-        Your Business Journey Begins
+        Meeting with Industry Cluster Development
     </div>
 
     <!-- VISUAL -->
     <div class="scene-visual">
-        <img src="scene1.png" alt="You at the start of your business journey">
+        🌐🤝
     </div>
 
     <!-- DIALOGUE -->
@@ -182,23 +177,33 @@ body.fade-out {
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            You are an IT specialist running your business from home.<br><br>
+            MC meets with the
+            <strong>Industry Cluster Development (ICD)</strong> team
+            to discuss the next phase of his company’s growth.<br><br>
 
-            What once felt manageable no longer does. More clients are coming in.
-            Projects are piling up. Your team is growing — and so are expectations.<br><br>
+            During the discussion, MC shares his plans to bring
+            <strong>Amajon</strong>, a major international ICT company
+            from Malaysia, into Brunei through a joint venture.<br><br>
 
-            Slowly, the limits of working from home become clear.
-            Meetings spill into living spaces. Collaboration feels constrained.
-            Focus is harder to maintain.<br><br>
+            He explains the key requirements — suitable
+            <strong>land</strong> and
+            <strong>office space</strong>
+            to support operations, collaboration, and future expansion.<br><br>
 
-            If your business is going to move forward, you know something has to change.<br><br>
+            Taking this into consideration, the ICD team begins developing
+            a structured plan to facilitate the entry of Amajon into Brunei’s
+            ICT ecosystem.<br><br>
 
-            You need a space that matches your ambition —
-            a place where your team can collaborate, build, and grow.
+            Recognising the importance of clustering, ICD proposes placing
+            Amajon near MC’s existing office at
+            <strong>Anggerek Desa Technology Park (ADTP)</strong>,
+            within the established
+            <strong>ICT Cluster</strong>,
+            to encourage collaboration, talent sharing, and innovation.
         </div>
 
         <div class="dialogue-actions">
-            <button onclick="nextScene()">Continue ▶</button>
+            <button onclick="goNext()">Continue ▶</button>
         </div>
     </div>
 
@@ -210,9 +215,14 @@ function goHome() {
     setTimeout(() => window.location.href = "index.html", 600);
 }
 
-function nextScene() {
+function goBack() {
     document.body.classList.add("fade-out");
-    setTimeout(() => window.location.href = "scene2.html", 600);
+    setTimeout(() => window.location.href = "scene12.html", 600);
+}
+
+function goNext() {
+    document.body.classList.add("fade-out");
+    setTimeout(() => window.location.href = "final.html", 600);
 }
 </script>
 

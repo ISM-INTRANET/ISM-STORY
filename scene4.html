@@ -7,9 +7,9 @@
 <title>Business Assessment and Allocation</title>
 
 <style>
-/* ==================================================
-   GLOBAL RESET & BASE
-================================================== */
+/* =====================
+   GLOBAL RESET
+===================== */
 * {
     box-sizing: border-box;
 }
@@ -21,110 +21,107 @@ html, body {
     height: 100%;
     font-family: "Segoe UI", Arial, Helvetica, sans-serif;
     background: radial-gradient(circle at top, #1c1c1c 0%, #000 65%);
-    color: #fff;
-    overflow: hidden;
+    color: #ffffff;
+    overflow-x: hidden;
+    overflow-y: auto; /* 🔑 scroll only when needed */
 }
 
-/* ==================================================
+/* =====================
    FADE TRANSITION
-================================================== */
+===================== */
 body {
     opacity: 1;
     transition: opacity 0.6s ease;
 }
-
 body.fade-out {
     opacity: 0;
 }
 
-/* ==================================================
+/* =====================
    SCENE LAYOUT
-================================================== */
+===================== */
 .scene {
-    min-height: 100vh;
+    min-height: 100svh; /* mobile-safe viewport */
     display: flex;
     flex-direction: column;
-    padding: clamp(16px, 4vw, 50px);
+    padding: clamp(16px, 4vw, 40px);
 }
 
-/* ==================================================
+/* =====================
    TOP BAR
-================================================== */
+===================== */
 .top-bar {
     display: flex;
     gap: 12px;
 }
 
 .top-bar button {
-    background: rgba(40, 40, 40, 0.9);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 12px;
+    background: rgba(40, 40, 40, 0.85);
+    border: none;
+    border-radius: 10px;
     color: white;
-    padding: 8px 16px;
+    padding: 8px 14px;
     cursor: pointer;
     font-size: 14px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-    transition: background 0.2s ease, transform 0.2s ease;
 }
-
 .top-bar button:hover {
     background: rgba(70, 70, 70, 0.95);
-    transform: translateY(-1px);
 }
 
-/* ==================================================
-   SCENE TITLE
-================================================== */
+/* =====================
+   TITLE
+===================== */
 .scene-title {
     text-align: center;
     font-size: clamp(22px, 3vw, 34px);
-    margin: 18px 0 8px;
+    margin: 18px 0 10px;
     letter-spacing: 0.5px;
 }
 
-/* ==================================================
-   SCENE VISUAL
-================================================== */
+/* =====================
+   VISUAL
+===================== */
 .scene-visual {
-    flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
+    margin-bottom: 16px;
 }
 
 .scene-visual img {
     width: min(78vw, 520px);
-    max-height: 46vh;
+    max-height: 42vh;
     object-fit: contain;
     filter:
-        drop-shadow(0 0 36px rgba(255, 200, 120, 0.35))
-        drop-shadow(0 0 80px rgba(0, 0, 0, 0.7));
+        drop-shadow(0 0 32px rgba(255, 200, 120, 0.35))
+        drop-shadow(0 0 70px rgba(0, 0, 0, 0.7));
 }
 
-/* ==================================================
+/* =====================
    DIALOGUE BOX
-================================================== */
+===================== */
 .dialogue-box {
     width: 100%;
     max-width: 1100px;
-    margin: 0 auto 22px;
+    margin: 0 auto;
     background: rgba(18, 18, 18, 0.95);
     border-radius: 18px;
-    padding: clamp(16px, 2.5vw, 24px);
+    padding: clamp(16px, 2.5vw, 22px);
     box-shadow: 0 14px 40px rgba(0,0,0,0.85);
     border: 1px solid rgba(255,255,255,0.06);
 }
 
+/* Speaker */
 .speaker {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     color: #ffd56b;
-    letter-spacing: 0.4px;
 }
 
+/* Text */
 .dialogue-text {
-    font-size: clamp(14px, 2.2vw, 17px);
-    line-height: 1.6;
+    font-size: clamp(14px, 2.1vw, 16px);
+    line-height: 1.45;
     color: #eaeaea;
 }
 
@@ -134,37 +131,40 @@ body.fade-out {
     font-weight: bold;
 }
 
-/* ==================================================
+/* =====================
    ACTION BUTTON
-================================================== */
+===================== */
 .dialogue-actions {
-    text-align: right;
-    margin-top: 22px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
 }
 
 .dialogue-actions button {
-    font-size: 15px;
-    padding: 10px 26px;
-    border: none;
+    font-size: 14px;
+    padding: 10px 24px;
     border-radius: 12px;
+    border: none;
     background: linear-gradient(145deg, #262626, #121212);
     color: white;
     cursor: pointer;
     box-shadow: 0 8px 20px rgba(0,0,0,0.65);
-    transition: transform 0.2s ease;
 }
-
 .dialogue-actions button:hover {
     transform: translateY(-1px);
 }
 
-/* ==================================================
-   MOBILE
-================================================== */
+/* =====================
+   MOBILE ADJUSTMENTS
+===================== */
 @media (max-width: 768px) {
     .scene-visual img {
         width: 90vw;
-        max-height: 34vh;
+        max-height: 32vh;
+    }
+
+    .dialogue-actions {
+        justify-content: center;
     }
 }
 </style>
@@ -202,16 +202,10 @@ body.fade-out {
             They guide you through the application process step by step, helping you prepare
             the necessary documents and clarifying requirements based on your business needs.<br><br>
 
-            Your proposal then moves into the screening and assessment stage, where your business
+            Your proposal then enters the screening and assessment stage, where your business
             plan, operational readiness, and site requirements are carefully reviewed.<br><br>
 
-            Along the way, you gain a clearer understanding of what is expected — and how your
-            application can be strengthened to meet those expectations.<br><br>
-
-            Once the assessment is complete, the BAA team supports the allocation process,
-            identifying a site that aligns with your business objectives and future growth plans.<br><br>
-
-            What initially felt complex and uncertain now feels structured, supported, and within reach.
+            What once felt complex now feels structured, supported, and within reach.
         </div>
 
         <div class="dialogue-actions">

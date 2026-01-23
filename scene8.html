@@ -8,7 +8,7 @@
 
 <style>
 /* ==================================================
-   GLOBAL RESET & BASE
+   GLOBAL RESET & BASE (MATCH SCENE 4)
 ================================================== */
 * {
     box-sizing: border-box;
@@ -22,7 +22,6 @@ html, body {
     font-family: "Segoe UI", Arial, Helvetica, sans-serif;
     background: radial-gradient(circle at top, #1c1c1c 0%, #000 65%);
     color: #fff;
-    overflow: hidden;
 }
 
 /* ==================================================
@@ -44,7 +43,7 @@ body.fade-out {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: clamp(16px, 4vw, 50px);
+    padding: clamp(18px, 4vw, 48px);
 }
 
 /* ==================================================
@@ -64,34 +63,31 @@ body.fade-out {
     cursor: pointer;
     font-size: 14px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.top-bar button:hover {
-    background: rgba(70, 70, 70, 0.95);
-    transform: translateY(-1px);
 }
 
 /* ==================================================
-   SCENE TITLE
+   TITLE
 ================================================== */
 .scene-title {
     text-align: center;
-    font-size: clamp(22px, 3vw, 36px);
-    margin: 18px 0 6px;
+    font-size: clamp(24px, 3.5vw, 36px);
+    margin: 16px 0 18px;
     letter-spacing: 0.6px;
 }
 
 /* ==================================================
-   VISUAL (SYMBOLIC / CELEBRATORY)
+   VISUAL (SYMBOLIC)
 ================================================== */
 .scene-visual {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 72px;
-    opacity: 0.6;
+}
+
+.scene-visual span {
+    font-size: clamp(44px, 6vw, 56px);
+    opacity: 0.55;
 }
 
 /* ==================================================
@@ -100,24 +96,23 @@ body.fade-out {
 .dialogue-box {
     width: 100%;
     max-width: 1100px;
-    margin: 0 auto 22px;
+    margin: 0 auto 16px;
     background: rgba(18, 18, 18, 0.95);
     border-radius: 18px;
-    padding: clamp(16px, 2.5vw, 24px);
+    padding: clamp(16px, 3vw, 22px);
     box-shadow: 0 14px 40px rgba(0,0,0,0.85);
     border: 1px solid rgba(255,255,255,0.06);
 }
 
 .speaker {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     color: #ffd56b;
-    letter-spacing: 0.4px;
 }
 
 .dialogue-text {
-    font-size: clamp(15px, 2.4vw, 18px);
-    line-height: 1.6;
+    font-size: clamp(15px, 2.3vw, 17px);
+    line-height: 1.5;
     color: #eaeaea;
 }
 
@@ -125,18 +120,18 @@ body.fade-out {
    ACTION BUTTON
 ================================================== */
 .dialogue-actions {
+    margin-top: 18px;
     text-align: right;
-    margin-top: 26px;
 }
 
 .dialogue-actions button {
+    font-size: 15px;
     padding: 10px 26px;
     border-radius: 12px;
     border: none;
     background: linear-gradient(145deg, #262626, #121212);
     color: white;
     cursor: pointer;
-    font-size: 15px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.65);
 }
 
@@ -145,11 +140,15 @@ body.fade-out {
 }
 
 /* ==================================================
-   MOBILE
+   SHORT SCREEN / ZOOM SAFETY
 ================================================== */
-@media (max-width: 768px) {
-    .scene-title {
-        font-size: 22px;
+@media (max-height: 720px) {
+    body {
+        overflow-y: auto;
+    }
+
+    .scene-visual span {
+        font-size: 36px;
     }
 }
 </style>
@@ -172,7 +171,7 @@ body.fade-out {
 
     <!-- VISUAL -->
     <div class="scene-visual">
-        🏢
+        <span>🏢</span>
     </div>
 
     <!-- DIALOGUE -->
@@ -180,22 +179,23 @@ body.fade-out {
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            After completing the necessary steps and formalities, MC receives confirmation
-            that marks a significant milestone in his journey.<br><br>
+            After completing the required steps and formalities, you receive confirmation
+            that marks a key milestone in your journey.<br><br>
 
-            With everything now in place, MC is officially recognised as a
+            You are officially recognised as a
             <span style="color:#ffd56b;font-weight:bold;">
                 tenant under the Brunei Economic Development Board (BEDB)
-            </span>.<br><br>
+            </span>,
+            opening the door to a new phase of growth and opportunity.<br><br>
 
-            As part of this milestone, MC is allocated an
+            As part of this milestone, you are allocated an
             <strong>office space within the Anggerek Desa Technology Park (ADTP)</strong>,
-            providing a base for him to begin operations and grow his business.<br><br>
+            providing a foundation to begin operations and build your business further.<br><br>
 
-            What began as an idea has now taken shape — opening the door to new opportunities,
-            responsibilities, and growth within the BEDB ecosystem.<br><br>
+            What began as an idea has now taken shape —
+            a structured start within the BEDB ecosystem.<br><br>
 
-            As MC looks ahead, he knows this is only the beginning.
+            As you look ahead, it is clear that this is only the beginning.
         </div>
 
         <div class="dialogue-actions">

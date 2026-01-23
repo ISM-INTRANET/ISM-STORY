@@ -7,9 +7,9 @@
 <title>Journey Outcome</title>
 
 <style>
-/* =====================
-   GLOBAL RESET
-===================== */
+/* ==================================================
+   RESET & BASE
+================================================== */
 * {
     box-sizing: border-box;
 }
@@ -25,9 +25,9 @@ html, body {
     overflow: hidden;
 }
 
-/* =====================
+/* ==================================================
    FADE TRANSITION
-===================== */
+================================================== */
 body {
     opacity: 1;
     transition: opacity 0.6s ease;
@@ -37,77 +37,81 @@ body.fade-out {
     opacity: 0;
 }
 
-/* =====================
-   LAYOUT
-===================== */
+/* ==================================================
+   SCENE LAYOUT
+================================================== */
 .scene {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: clamp(20px, 4vw, 60px);
     text-align: center;
+    gap: clamp(18px, 3vh, 28px);
 }
 
-/* =====================
+/* ==================================================
    TITLE
-===================== */
+================================================== */
 .scene-title {
-    font-size: clamp(26px, 4vw, 44px);
+    font-size: clamp(26px, 4vw, 42px);
     font-weight: bold;
-    margin-bottom: 24px;
     letter-spacing: 0.6px;
 }
 
-/* =====================
-   NARRATIVE
-===================== */
+/* ==================================================
+   NARRATIVE TEXT
+================================================== */
 .narrative {
     max-width: 900px;
-    font-size: clamp(16px, 2.4vw, 19px);
-    line-height: 1.7;
+    font-size: clamp(15px, 2.4vw, 18px);
+    line-height: 1.65;
     color: #e6e6e6;
 }
 
-/* =====================
-   HIGHLIGHT METRICS
-===================== */
+/* ==================================================
+   OUTCOMES
+================================================== */
 .outcomes {
-    margin-top: 40px;
     display: flex;
-    gap: 28px;
+    gap: clamp(16px, 4vw, 28px);
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .outcome-box {
-    background: rgba(20, 20, 20, 0.9);
+    background: rgba(20, 20, 20, 0.92);
     border-radius: 18px;
-    padding: 26px 34px;
-    min-width: 220px;
+    padding: 24px 34px;
+    min-width: 210px;
     box-shadow: 0 12px 34px rgba(0,0,0,0.85);
     border: 1px solid rgba(255,255,255,0.06);
+    transition: transform 0.25s ease;
+}
+
+.outcome-box:hover {
+    transform: translateY(-4px);
 }
 
 .outcome-number {
-    font-size: 36px;
+    font-size: clamp(30px, 4vw, 38px);
     font-weight: bold;
     color: #ffd56b;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .outcome-label {
-    font-size: 15px;
+    font-size: 14px;
     letter-spacing: 0.4px;
     color: #cccccc;
 }
 
-/* =====================
-   ACTION
-===================== */
+/* ==================================================
+   ACTION BUTTON
+================================================== */
 .actions {
-    margin-top: 50px;
+    margin-top: clamp(22px, 4vh, 36px);
 }
 
 .actions button {
@@ -119,10 +123,20 @@ body.fade-out {
     color: white;
     cursor: pointer;
     box-shadow: 0 10px 26px rgba(0,0,0,0.75);
+    transition: transform 0.2s ease;
 }
 
 .actions button:hover {
     transform: translateY(-2px);
+}
+
+/* ==================================================
+   SHORT SCREEN SAFETY
+================================================== */
+@media (max-height: 720px) {
+    body {
+        overflow-y: auto;
+    }
 }
 </style>
 </head>
@@ -155,7 +169,7 @@ body.fade-out {
         </div>
 
         <div class="outcome-box">
-            <div class="outcome-number">+</div>
+            <div class="outcome-number">∞</div>
             <div class="outcome-label">Job Creation</div>
         </div>
     </div>

@@ -7,9 +7,9 @@
 <title>BEDB - ISM</title>
 
 <style>
-/* =====================
-   GLOBAL RESET
-===================== */
+/* ==================================================
+   GLOBAL RESET & BASE
+================================================== */
 * {
     box-sizing: border-box;
 }
@@ -19,15 +19,14 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-    background: radial-gradient(circle at top, #1a1a1a, #000);
-    color: white;
-    overflow: hidden;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    background: radial-gradient(circle at top, #1c1c1c 0%, #000 65%);
+    color: #fff;
 }
 
-/* =====================
+/* ==================================================
    FADE TRANSITION
-===================== */
+================================================== */
 body {
     opacity: 1;
     transition: opacity 0.6s ease;
@@ -37,92 +36,77 @@ body.fade-out {
     opacity: 0;
 }
 
-/* =====================
-   SCENE LAYOUT
-===================== */
+/* ==================================================
+   SCENE LAYOUT (MATCHES SCENE 4)
+================================================== */
 .scene {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: clamp(16px, 4vw, 50px);
+    padding: clamp(18px, 4vw, 48px);
 }
 
-/* =====================
+/* ==================================================
    TOP BAR
-===================== */
+================================================== */
 .top-bar {
     display: flex;
-    align-items: center;
     gap: 12px;
 }
 
 .top-bar button {
-    background: rgba(40, 40, 40, 0.85);
-    border: none;
-    border-radius: 10px;
+    background: rgba(40, 40, 40, 0.9);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
     color: white;
-    padding: 8px 14px;
+    padding: 8px 16px;
     cursor: pointer;
     font-size: 14px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
 
-.top-bar button:hover {
-    background: rgba(70, 70, 70, 0.95);
-}
-
-/* =====================
-   SCENE TITLE
-===================== */
+/* ==================================================
+   TITLE
+================================================== */
 .scene-title {
     text-align: center;
-    font-size: clamp(22px, 3.2vw, 34px);
-    margin-top: 16px;
-    margin-bottom: 10px;
-    letter-spacing: 0.5px;
+    font-size: clamp(24px, 3.5vw, 36px);
+    margin: 16px 0 18px;
+    letter-spacing: 0.6px;
 }
 
-/* =====================
-   SCENE VISUAL
-===================== */
+/* ==================================================
+   VISUAL
+================================================== */
 .scene-visual {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
 }
 
 .scene-visual img {
-    width: min(60vw, 420px);
-    max-height: 38vh;
+    width: min(82vw, 520px);
+    max-height: 42vh;
     object-fit: contain;
     image-rendering: pixelated;
-    filter: drop-shadow(0 0 20px rgba(255, 215, 120, 0.25));
+    filter:
+        drop-shadow(0 0 26px rgba(255, 215, 120, 0.3))
+        drop-shadow(0 0 70px rgba(0, 0, 0, 0.7));
 }
 
-/* Highlight keywords */
-.highlight-bedb {
-    color: #ffd56b;
-    font-weight: bold;
-}
-
-.highlight-ism {
-    color: rgb(0, 145, 99);
-    font-weight: bold;
-}
-
-/* =====================
+/* ==================================================
    DIALOGUE BOX
-===================== */
+================================================== */
 .dialogue-box {
     width: 100%;
     max-width: 1100px;
-    margin: 0 auto 20px;
-    background: rgba(20, 20, 20, 0.92);
-    border-radius: 16px;
-    padding: clamp(14px, 2.5vw, 22px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    margin: 0 auto 16px;
+    background: rgba(18, 18, 18, 0.95);
+    border-radius: 18px;
+    padding: clamp(16px, 3vw, 22px);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.85);
+    border: 1px solid rgba(255,255,255,0.06);
 }
 
 .speaker {
@@ -132,44 +116,55 @@ body.fade-out {
 }
 
 .dialogue-text {
-    font-size: clamp(14px, 2.2vw, 17px);
-    line-height: 1.55;
+    font-size: clamp(14px, 2.2vw, 16px);
+    line-height: 1.5;
+    color: #eaeaea;
 }
 
-/* =====================
+/* Highlights */
+.highlight-bedb {
+    color: #ffd56b;
+    font-weight: bold;
+}
+
+.highlight-ism {
+    color: #3ccf91;
+    font-weight: bold;
+}
+
+/* ==================================================
    ACTION BUTTON
-===================== */
+================================================== */
 .dialogue-actions {
+    margin-top: 16px;
     text-align: right;
-    margin-top: 14px;
 }
 
 .dialogue-actions button {
     font-size: 14px;
-    padding: 8px 20px;
+    padding: 10px 26px;
+    border-radius: 12px;
     border: none;
-    border-radius: 10px;
-    background: linear-gradient(145deg, #3a3a3a, #1f1f1f);
+    background: linear-gradient(145deg, #262626, #121212);
     color: white;
     cursor: pointer;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.65);
 }
 
 .dialogue-actions button:hover {
     transform: translateY(-1px);
 }
 
-/* =====================
-   MOBILE FIX
-===================== */
-@media (max-width: 768px) {
-    .scene-visual img {
-        width: 85vw;
-        max-height: 32vh;
+/* ==================================================
+   ZOOM & SHORT SCREEN SAFETY
+================================================== */
+@media (max-height: 720px) {
+    body {
+        overflow-y: auto;
     }
 
-    .scene-title {
-        font-size: 22px;
+    .scene-visual img {
+        max-height: 34vh;
     }
 }
 </style>
@@ -179,43 +174,42 @@ body.fade-out {
 
 <div class="scene">
 
+    <!-- TOP BAR -->
     <div class="top-bar">
         <button onclick="goHome()">← Home</button>
         <button onclick="goBack()">← Back</button>
     </div>
 
+    <!-- TITLE -->
     <div class="scene-title">
         BEDB - ISM
     </div>
 
+    <!-- VISUAL -->
     <div class="scene-visual">
         <img src="scene2.png" alt="Researching BEDB and ISM">
     </div>
 
+    <!-- DIALOGUE -->
     <div class="dialogue-box">
         <div class="speaker">Narrator</div>
 
-<div class="dialogue-text">
-    While researching potential solutions, you come across the
-    <span style="color:#ffd56b;font-weight:bold;">
-        Brunei Economic Development Board (BEDB)
-    </span>.<br><br>
+        <div class="dialogue-text">
+            While researching potential solutions, you come across the
+            <span class="highlight-bedb">Brunei Economic Development Board (BEDB)</span>.<br><br>
 
-    You discover that BEDB offers various spaces tailored for businesses —
-    whether it’s <strong>industrial land</strong> for long-term development,
-    or a <strong>ready-built factory</strong> for faster setup and immediate operations.<br><br>
+            You discover that BEDB offers various spaces tailored for businesses —
+            whether it’s <strong>industrial land</strong> for long-term development,
+            or a <strong>ready-built factory</strong> for faster setup and immediate operations.<br><br>
 
-    More importantly, you learn that under BEDB, there is a dedicated department called
-    <span style="color:#3ccf91;font-weight:bold;">
-        Industrial Site Management (ISM)
-    </span>
-    — a team that assists tenants with site matters, facilities, and operational challenges
-    as their businesses grow.<br><br>
+            More importantly, you learn that under BEDB, there is a dedicated department called
+            <span class="highlight-ism">Industrial Site Management (ISM)</span>
+            — a team that assists tenants with site matters, facilities, and operational challenges
+            as their businesses grow.<br><br>
 
-    With a clearer path ahead, you decide to visit the BEDB office the next day,
-    ready to learn more about the support available and what it could mean for your business.
-</div>
-
+            With a clearer path ahead, you decide to visit the BEDB office the next day,
+            ready to learn more about the support available and what it could mean for your business.
+        </div>
 
         <div class="dialogue-actions">
             <button onclick="nextScene()">Continue ▶</button>
