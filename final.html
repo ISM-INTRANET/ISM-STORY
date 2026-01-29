@@ -32,23 +32,59 @@ body {
     opacity: 1;
     transition: opacity 0.6s ease;
 }
-
 body.fade-out {
     opacity: 0;
 }
 
 /* ==================================================
-   SCENE LAYOUT
+   WARM STAR CANVAS
+================================================== */
+canvas#stars {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ==================================================
+   TOP BAR
+================================================== */
+.top-bar {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    z-index: 5;
+}
+
+.top-bar button {
+    background: rgba(40, 40, 40, 0.9);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    color: white;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+.top-bar button:hover {
+    background: rgba(70, 70, 70, 0.95);
+}
+
+/* ==================================================
+   SCENE LAYOUT (AUTOSCALE)
 ================================================== */
 .scene {
-    height: 100vh;
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: clamp(20px, 4vw, 60px);
     text-align: center;
-    gap: clamp(18px, 3vh, 28px);
+    gap: clamp(18px, 3vh, 26px);
 }
 
 /* ==================================================
@@ -61,7 +97,19 @@ body.fade-out {
 }
 
 /* ==================================================
-   NARRATIVE TEXT
+   VISUAL
+================================================== */
+.scene-visual img {
+    width: min(85vw, 520px);
+    max-height: 30vh;
+    object-fit: contain;
+    filter:
+        drop-shadow(0 0 26px rgba(255,215,120,0.35))
+        drop-shadow(0 0 70px rgba(0,0,0,0.7));
+}
+
+/* ==================================================
+   NARRATIVE
 ================================================== */
 .narrative {
     max-width: 900px;
@@ -108,34 +156,72 @@ body.fade-out {
 }
 
 /* ==================================================
-   ACTION BUTTON
+   FLOATY ACTION BUTTON
 ================================================== */
-.actions {
-    margin-top: clamp(22px, 4vh, 36px);
-}
-
 .actions button {
     font-size: 16px;
-    padding: 14px 36px;
+    padding: 14px 38px;
     border-radius: 14px;
     border: none;
     background: linear-gradient(145deg, #3a3a3a, #1f1f1f);
     color: white;
     cursor: pointer;
     box-shadow: 0 10px 26px rgba(0,0,0,0.75);
-    transition: transform 0.2s ease;
+    animation: floatButton 4.5s ease-in-out infinite;
 }
 
-.actions button:hover {
-    transform: translateY(-2px);
+@keyframes floatButton {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+/* ==================================================
+   FOOTER
+================================================== */
+.footer {
+    margin-top: 28px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+}
+
+.name-highlight {
+    color: #ffd56b;
+    font-weight: bold;
+}
+
+.team-highlight {
+    color: #009163;
+    font-weight: bold;
+}
+
+/* ==================================================
+   WATERMARK
+================================================== */
+.watermark {
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.watermark img {
+    width: 90px;
 }
 
 /* ==================================================
    SHORT SCREEN SAFETY
 ================================================== */
-@media (max-height: 720px) {
+@media (max-height: 820px) {
     body {
         overflow-y: auto;
+    }
+
+    .scene {
+        justify-content: flex-start;
+        padding-top: 90px;
+        padding-bottom: 120px;
     }
 }
 </style>
@@ -143,50 +229,122 @@ body.fade-out {
 
 <body>
 
+<!-- STAR BACKGROUND -->
+<canvas id="stars"></canvas>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+    <button onclick="goBack()">← Back</button>
+</div>
+
 <div class="scene">
 
-    <div class="scene-title">
-        Journey Outcome
+    <div class="scene-title">Journey Outcome</div>
+
+    <div class="scene-visual">
+        <img src="final.png" alt="Journey Outcome">
     </div>
 
     <div class="narrative">
-        Through this tenant journey, supported by the collective efforts of the ISM teams,
-        a single business progresses from interest to tenancy.<br><br>
+        Through this tenant journey, supported by the collective efforts
+        of the ISM teams, a single business progresses from
+        application to agreement.<br><br>
 
-        Each interaction, process, and decision contributes to a larger outcome —
-        not just for the tenant, but for BEDB as a whole.
+        Each interaction, process, and decision contributes to a larger
+        outcome — not just for the tenant, but for BEDB and the wider
+        ecosystem.
     </div>
 
     <div class="outcomes">
-        <div class="outcome-box">
-            <div class="outcome-number">+1</div>
-            <div class="outcome-label">New Tenant</div>
-        </div>
-
-        <div class="outcome-box">
-            <div class="outcome-number">+1</div>
-            <div class="outcome-label">Revenue Contributor</div>
-        </div>
-
-        <div class="outcome-box">
-            <div class="outcome-number">∞</div>
-            <div class="outcome-label">Job Creation</div>
-        </div>
+        <div class="outcome-box"><div class="outcome-number">+1</div><div class="outcome-label">Tenant Onboarded</div></div>
+        <div class="outcome-box"><div class="outcome-number">++</div><div class="outcome-label">Revenue Generation</div></div>
+        <div class="outcome-box"><div class="outcome-number">+++</div><div class="outcome-label">Job Creation</div></div>
+        <div class="outcome-box"><div class="outcome-number">++++</div><div class="outcome-label">Cluster Development</div></div>
+        <div class="outcome-box"><div class="outcome-number">+++++</div><div class="outcome-label">Long-term Economic Impact</div></div>
     </div>
 
     <div class="actions">
         <button onclick="restart()">Restart Journey</button>
     </div>
 
+    <div class="footer">
+        Warm regards,
+        <span class="name-highlight">Nawi Sulaiman</span>
+        from the
+        <span class="team-highlight">ISM Strategic Delivery Team</span><br>
+        © 2026 Brunei Economic Development Board. All rights reserved.
+    </div>
+
+</div>
+
+<div class="watermark">
+    <img src="bedb-watermark.png" alt="BEDB Watermark">
 </div>
 
 <script>
 function restart() {
     document.body.classList.add("fade-out");
-    setTimeout(() => {
-        window.location.href = "index.html";
-    }, 600);
+    setTimeout(() => window.location.href = "index.html", 600);
 }
+
+function goBack() {
+    document.body.classList.add("fade-out");
+    setTimeout(() => window.location.href = "scene16.html", 600);
+}
+
+/* ===============================
+   WARM STAR ANIMATION
+================================ */
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+
+function resizeStars() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resizeStars);
+resizeStars();
+
+const stars = [];
+const colors = [
+    "rgba(255,200,120,0.6)",
+    "rgba(255,170,90,0.5)",
+    "rgba(255,220,160,0.4)"
+];
+
+for (let i = 0; i < 70; i++) {
+    stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.6 + 0.6,
+        dx: (Math.random() - 0.5) * 0.15,
+        dy: (Math.random() - 0.5) * 0.15,
+        color: colors[Math.floor(Math.random() * colors.length)]
+    });
+}
+
+function animateStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    stars.forEach(s => {
+        ctx.beginPath();
+        ctx.fillStyle = s.color;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = s.color;
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        s.x += s.dx;
+        s.y += s.dy;
+
+        if (s.x < 0 || s.x > canvas.width) s.dx *= -1;
+        if (s.y < 0 || s.y > canvas.height) s.dy *= -1;
+    });
+
+    requestAnimationFrame(animateStars);
+}
+
+animateStars();
 </script>
 
 </body>
