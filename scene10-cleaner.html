@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Who to meet: Part 2</title>
+<title>A Helpful Hint</title>
 
 <style>
 /* ==================================================
@@ -31,6 +31,7 @@ body {
     opacity: 1;
     transition: opacity 0.6s ease;
 }
+
 body.fade-out {
     opacity: 0;
 }
@@ -75,7 +76,7 @@ body.fade-out {
 }
 
 /* ==================================================
-   VISUAL
+   VISUAL (IMAGE)
 ================================================== */
 .scene-visual {
     flex: 1;
@@ -85,16 +86,16 @@ body.fade-out {
 }
 
 .scene-visual img {
-    width: min(78vw, 520px);
-    max-height: 40vh;
+    width: min(80vw, 420px);
+    max-height: 42vh;
     object-fit: contain;
     filter:
-        drop-shadow(0 0 28px rgba(255, 215, 120, 0.35))
-        drop-shadow(0 0 70px rgba(0, 0, 0, 0.7));
+        drop-shadow(0 0 24px rgba(255, 215, 120, 0.35))
+        drop-shadow(0 0 60px rgba(0, 0, 0, 0.7));
 }
 
 /* ==================================================
-   DIALOGUE BOX (MATCH SCENE 3)
+   DIALOGUE BOX
 ================================================== */
 .dialogue-box {
     width: 100%;
@@ -119,29 +120,19 @@ body.fade-out {
     color: #eaeaea;
 }
 
-/* Question block – centered like Scene 3 */
-.question-block {
-    text-align: center;
-    margin-top: 14px;
-}
-
-.question-block strong {
-    font-size: clamp(18px, 3vw, 22px);
-}
-
 /* ==================================================
    CHOICE BUTTONS
 ================================================== */
 .choice-buttons {
     display: flex;
     gap: 18px;
-    margin-top: 20px;
+    margin-top: 18px;
 }
 
 .choice-buttons button {
     flex: 1;
     padding: 18px 0;
-    font-size: clamp(16px, 2.4vw, 20px);
+    font-size: clamp(16px, 2.4vw, 19px);
     font-weight: bold;
     border-radius: 16px;
     border: 1px solid rgba(255, 215, 120, 0.25);
@@ -156,8 +147,8 @@ body.fade-out {
     transform: translateY(-2px);
     border: 1px solid rgba(255, 215, 120, 0.8);
     box-shadow:
-        0 16px 42px rgba(0,0,0,0.9),
-        0 0 28px rgba(255,215,120,0.45);
+        0 14px 36px rgba(0,0,0,0.9),
+        0 0 24px rgba(255,215,120,0.45);
 }
 
 /* ==================================================
@@ -183,12 +174,12 @@ body.fade-out {
 
     <!-- TITLE -->
     <div class="scene-title">
-        Who to meet: Part 2
+        A Helpful Hint
     </div>
 
     <!-- VISUAL -->
     <div class="scene-visual">
-        <img src="scene12.png" alt="Considering next strategic move">
+        <img src="scene10-cleaner.png" alt="Speaking with the cleaner">
     </div>
 
     <!-- DIALOGUE -->
@@ -196,24 +187,27 @@ body.fade-out {
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            Several years after establishing your presence within the
-            <span style="color:#ffd56b;font-weight:bold;">BEDB Ecosystem</span>,
-            your business has grown beyond its early foundations.<br><br>
+            You approach the cleaner working nearby and explain the <strong>issues</strong>
+            you are experiencing in your office.<br><br>
 
-            Through regional exposure and strategic partnerships, you are now
-            working alongside an <strong>international ICT company</strong>, opening new
-            opportunities for collaboration and expansion.<br><br>
+            The cleaner listens politely but looks slightly confused.
+            He explains that handling air-conditioning and water issues
+            is not part of his role.<br><br>
 
-            <div class="question-block">
-                <strong>Question:</strong><br>
-                Which <span style="color:#009163;font-weight:bold;">ISM Team</span>
-                should you engage to support industry alignment and ecosystem growth?
-            </div>
+           Before you leave, he mentions that there is
+<span style="color:#009163;font-weight:bold;">someone from ISM</span>
+who usually handles
+<span style="color:#009163;font-weight:bold;">maintenance-related matters</span>
+in the building, and suggests that you check with them instead.<br><br>
+
+
+            With this hint in mind, you reconsider who the right person
+            to approach might be.
         </div>
 
         <div class="choice-buttons">
-            <button onclick="correctAnswer()">Industry Cluster Development (ICD)</button>
-            <button onclick="wrongAnswer()">Construction Project Delivery (CPD)</button>
+            <button onclick="goFMT()">Facilities Maintenance Team (FMT)</button>
+            <button onclick="stayCleaner()">Cleaner</button>
         </div>
     </div>
 
@@ -227,17 +221,17 @@ function goHome() {
 
 function goBack() {
     document.body.classList.add("fade-out");
-    setTimeout(() => window.location.href = "scene11.html", 600);
+    setTimeout(() => window.location.href = "scene9-1.html", 600);
 }
 
-function correctAnswer() {
+function goFMT() {
     document.body.classList.add("fade-out");
-    setTimeout(() => window.location.href = "scene13.html", 600);
+    setTimeout(() => window.location.href = "scene10.html", 600);
 }
 
-function wrongAnswer() {
+function stayCleaner() {
     document.body.classList.add("fade-out");
-    setTimeout(() => window.location.href = "scene13-cpd.html", 600);
+    setTimeout(() => window.location.href = "scene10-cleaner.html", 600);
 }
 </script>
 

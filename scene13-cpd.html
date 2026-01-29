@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Who to meet: Part 2</title>
+<title>Redirected to the Right Team</title>
 
 <style>
 /* ==================================================
@@ -69,13 +69,13 @@ body.fade-out {
 ================================================== */
 .scene-title {
     text-align: center;
-    font-size: clamp(24px, 3.5vw, 36px);
-    margin: 16px 0 18px;
+    font-size: clamp(22px, 3vw, 36px);
+    margin: 16px 0 10px;
     letter-spacing: 0.6px;
 }
 
 /* ==================================================
-   VISUAL
+   VISUAL (IMAGE)
 ================================================== */
 .scene-visual {
     flex: 1;
@@ -85,16 +85,16 @@ body.fade-out {
 }
 
 .scene-visual img {
-    width: min(78vw, 520px);
-    max-height: 40vh;
+    width: min(80vw, 460px);
+    max-height: 42vh;
     object-fit: contain;
     filter:
-        drop-shadow(0 0 28px rgba(255, 215, 120, 0.35))
-        drop-shadow(0 0 70px rgba(0, 0, 0, 0.7));
+        drop-shadow(0 0 24px rgba(255, 215, 120, 0.35))
+        drop-shadow(0 0 60px rgba(0,0,0,0.7));
 }
 
 /* ==================================================
-   DIALOGUE BOX (MATCH SCENE 3)
+   DIALOGUE BOX
 ================================================== */
 .dialogue-box {
     width: 100%;
@@ -119,14 +119,12 @@ body.fade-out {
     color: #eaeaea;
 }
 
-/* Question block – centered like Scene 3 */
-.question-block {
-    text-align: center;
-    margin-top: 14px;
-}
-
-.question-block strong {
-    font-size: clamp(18px, 3vw, 22px);
+/* ==================================================
+   HIGHLIGHT
+================================================== */
+.green {
+    color: #009163;
+    font-weight: bold;
 }
 
 /* ==================================================
@@ -135,7 +133,7 @@ body.fade-out {
 .choice-buttons {
     display: flex;
     gap: 18px;
-    margin-top: 20px;
+    margin-top: 18px;
 }
 
 .choice-buttons button {
@@ -149,7 +147,6 @@ body.fade-out {
     color: #f2f2f2;
     background: linear-gradient(145deg, #262626, #121212);
     box-shadow: 0 10px 26px rgba(0,0,0,0.75);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
 }
 
 .choice-buttons button:hover {
@@ -183,12 +180,12 @@ body.fade-out {
 
     <!-- TITLE -->
     <div class="scene-title">
-        Who to meet: Part 2
+        Redirected to the Right Team
     </div>
 
     <!-- VISUAL -->
     <div class="scene-visual">
-        <img src="scene12.png" alt="Considering next strategic move">
+        <img src="scene13-cpd.png" alt="Meeting with CPD team">
     </div>
 
     <!-- DIALOGUE -->
@@ -196,24 +193,30 @@ body.fade-out {
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            Several years after establishing your presence within the
-            <span style="color:#ffd56b;font-weight:bold;">BEDB Ecosystem</span>,
-            your business has grown beyond its early foundations.<br><br>
+            You meet with the
+            <span class="green">Construction Project Delivery (CPD) team</span>
+            and share your plans regarding the expansion of your business
+            and international collaboration.<br><br>
 
-            Through regional exposure and strategic partnerships, you are now
-            working alongside an <strong>international ICT company</strong>, opening new
-            opportunities for collaboration and expansion.<br><br>
+            As the discussion continues, the team listens carefully and
+            acknowledges the growth your business has achieved so far.<br><br>
 
-            <div class="question-block">
-                <strong>Question:</strong><br>
-                Which <span style="color:#009163;font-weight:bold;">ISM Team</span>
-                should you engage to support industry alignment and ecosystem growth?
-            </div>
+            They explain that while
+            <span class="green">CPD</span>
+            plays a key role in delivering
+            <span class="green">construction projects</span>
+            and supporting essential
+            <span class="green">infrastructure</span>,
+            the type of support you are seeking at this stage
+            is typically guided by another team within ISM.<br><br>
+
+            With that in mind, you are encouraged to reconnect with
+            the appropriate team to help move your plans forward.
         </div>
 
         <div class="choice-buttons">
-            <button onclick="correctAnswer()">Industry Cluster Development (ICD)</button>
-            <button onclick="wrongAnswer()">Construction Project Delivery (CPD)</button>
+            <button onclick="goICD()">Industry Cluster Development (ICD)</button>
+            <button onclick="stayCPD()">Construction Project Delivery (CPD)</button>
         </div>
     </div>
 
@@ -227,15 +230,15 @@ function goHome() {
 
 function goBack() {
     document.body.classList.add("fade-out");
-    setTimeout(() => window.location.href = "scene11.html", 600);
+    setTimeout(() => window.location.href = "scene12.html", 600);
 }
 
-function correctAnswer() {
+function goICD() {
     document.body.classList.add("fade-out");
     setTimeout(() => window.location.href = "scene13.html", 600);
 }
 
-function wrongAnswer() {
+function stayCPD() {
     document.body.classList.add("fade-out");
     setTimeout(() => window.location.href = "scene13-cpd.html", 600);
 }

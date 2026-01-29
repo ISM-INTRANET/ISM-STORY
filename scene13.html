@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Meeting with Industry Cluster Development</title>
+<title>Industry Cluster Development (ICD)</title>
 
 <style>
 /* ==================================================
@@ -81,15 +81,22 @@ body.fade-out {
 }
 
 /* ==================================================
-   VISUAL (SYMBOLIC)
+   VISUAL (IMAGE)
 ================================================== */
 .scene-visual {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: clamp(60px, 9vw, 76px);
-    opacity: 0.55;
+}
+
+.scene-visual img {
+    width: min(80vw, 520px);
+    max-height: 42vh;
+    object-fit: contain;
+    filter:
+        drop-shadow(0 0 28px rgba(255, 215, 120, 0.25))
+        drop-shadow(0 0 70px rgba(0, 0, 0, 0.7));
 }
 
 /* ==================================================
@@ -116,6 +123,19 @@ body.fade-out {
     font-size: clamp(15px, 2.4vw, 18px);
     line-height: 1.6;
     color: #eaeaea;
+}
+
+/* ==================================================
+   HIGHLIGHTS
+================================================== */
+.green {
+    color: #009163;
+    font-weight: bold;
+}
+
+.gold {
+    color: #ffd56b;
+    font-weight: bold;
 }
 
 /* ==================================================
@@ -148,6 +168,10 @@ body.fade-out {
     body {
         overflow-y: auto;
     }
+
+    .scene-visual img {
+        max-height: 34vh;
+    }
 }
 </style>
 </head>
@@ -164,12 +188,12 @@ body.fade-out {
 
     <!-- TITLE -->
     <div class="scene-title">
-        Meeting with Industry Cluster Development
+        Industry Cluster Development (ICD)
     </div>
 
     <!-- VISUAL -->
     <div class="scene-visual">
-        🌐🤝
+        <img src="scene13.png" alt="Meeting with Industry Cluster Development team">
     </div>
 
     <!-- DIALOGUE -->
@@ -177,29 +201,40 @@ body.fade-out {
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            MC meets with the
-            <strong>Industry Cluster Development (ICD)</strong> team
-            to discuss the next phase of his company’s growth.<br><br>
+            You meet with the
+            <span class="green">Industry Cluster Development (ICD)</span>
+            <span class="green">team</span>
+            to discuss the next phase of your company’s growth.<br><br>
 
-            During the discussion, MC shares his plans to bring
-            <strong>Amajon</strong>, a major international ICT company
-            from Malaysia, into Brunei through a joint venture.<br><br>
+            During the discussion, you share your plans to bring
+            <strong>Amajon</strong>, a major international
+            <strong>ICT company</strong>
+            from <strong>Malaysia</strong>,
+            into <span class="gold">Brunei</span> through a
+            <span class="green">joint venture</span>.<br><br>
 
-            He explains the key requirements — suitable
-            <strong>land</strong> and
-            <strong>office space</strong>
-            to support operations, collaboration, and future expansion.<br><br>
+            You explain the key requirements — suitable
+            <span class="green">land</span> and
+            <span class="green">office space</span>
+            to support operations,
+            <strong>collaboration</strong>,
+            and future expansion.<br><br>
 
-            Taking this into consideration, the ICD team begins developing
-            a structured plan to facilitate the entry of Amajon into Brunei’s
-            ICT ecosystem.<br><br>
+            Taking this into consideration, the
+            <span class="green">ICD team</span>
+            begins to
+            <strong>facilitate</strong>
+            the entry of <strong>Amajon</strong> into
+            <span class="gold">Brunei’s ICT ecosystem</span>.<br><br>
 
             Recognising the importance of clustering, ICD proposes placing
-            Amajon near MC’s existing office at
-            <strong>Anggerek Desa Technology Park (ADTP)</strong>,
+            Amajon near your existing office at
+            <span class="green">Anggerek Desa Technology Park (ADTP)</span>,
             within the established
-            <strong>ICT Cluster</strong>,
-            to encourage collaboration, talent sharing, and innovation.
+            <span class="green">ICT Cluster</span>,
+            to encourage
+            <strong>collaboration</strong>,
+            talent sharing, and innovation.
         </div>
 
         <div class="dialogue-actions">
@@ -222,7 +257,7 @@ function goBack() {
 
 function goNext() {
     document.body.classList.add("fade-out");
-    setTimeout(() => window.location.href = "final.html", 600);
+    setTimeout(() => window.location.href = "scene14.html", 600);
 }
 </script>
 
