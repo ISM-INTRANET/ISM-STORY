@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Scene 14 — Growth Taking Shape</title>
+<title>Growth Taking Shape</title>
 
 <style>
 /* ==================================================
@@ -81,15 +81,22 @@ body.fade-out {
 }
 
 /* ==================================================
-   VISUAL (SYMBOLIC / CALM)
+   VISUAL (IMAGE)
 ================================================== */
 .scene-visual {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: clamp(58px, 8vw, 74px);
-    opacity: 0.5;
+}
+
+.scene-visual img {
+    width: min(85vw, 520px);
+    max-height: 42vh;
+    object-fit: contain;
+    filter:
+        drop-shadow(0 0 28px rgba(255, 215, 120, 0.35))
+        drop-shadow(0 0 60px rgba(0,0,0,0.7));
 }
 
 /* ==================================================
@@ -169,7 +176,7 @@ body.fade-out {
 
     <!-- VISUAL -->
     <div class="scene-visual">
-        🏗️🌱
+        <img src="scene14.png" alt="Development and growth around the office">
     </div>
 
     <!-- DIALOGUE -->
@@ -177,28 +184,23 @@ body.fade-out {
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            With operations running smoothly under BEDB,
-            MC begins to feel a growing sense of
-            <strong>security</strong> and
-            <strong>assurance</strong>
-            in his decision to establish his business here.<br><br>
+    With operations running smoothly under BEDB,
+    you feel a growing sense of
+    <strong>security</strong> and
+    <strong>assurance</strong>
+    in your decision to establish your business here.<br><br>
 
-            One afternoon, as he looks out from his office window,
-            MC notices construction activity taking place nearby —
-            a clear sign that development around the area is underway.<br><br>
+    One afternoon, you notice construction activity taking place
+    near your office — a sign that development in the area is moving forward.<br><br>
 
-            <em>Several months later…</em><br><br>
+    <em>Several months later…</em><br><br>
 
-            The construction gives way to a newly completed building.
-            New access roads connect the development seamlessly to the
-            surrounding area, while covered walkways and improved
-            pedestrian paths enhance daily convenience.<br><br>
+    The construction is complete. New buildings, access roads,
+    and improved walkways now surround the area,
+    transforming it into a well-planned environment built
+    to support long-term growth and sustainability.
+</div>
 
-            What was once an empty space has transformed into a
-            well-planned environment — reinforcing MC’s confidence
-            that he is operating within an ecosystem designed for
-            long-term growth and sustainability.
-        </div>
 
         <div class="dialogue-actions">
             <button onclick="goNext()">Continue ▶</button>
@@ -220,7 +222,7 @@ function goBack() {
 
 function goNext() {
     document.body.classList.add("fade-out");
-    setTimeout(() => window.location.href = "final.html", 600);
+    setTimeout(() => window.location.href = "scene15.html", 600);
 }
 </script>
 

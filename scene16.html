@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Scene 16 — Meeting with CPD</title>
+<title>Construction Project Delivery (CPD)</title>
 
 <style>
 /* ==================================================
@@ -81,15 +81,22 @@ body.fade-out {
 }
 
 /* ==================================================
-   VISUAL (SYMBOLIC)
+   VISUAL (IMAGE)
 ================================================== */
 .scene-visual {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: clamp(56px, 9vw, 76px);
-    opacity: 0.55;
+}
+
+.scene-visual img {
+    width: min(80vw, 520px);
+    max-height: 42vh;
+    object-fit: contain;
+    filter:
+        drop-shadow(0 0 28px rgba(255, 215, 120, 0.3))
+        drop-shadow(0 0 70px rgba(0, 0, 0, 0.7));
 }
 
 /* ==================================================
@@ -148,6 +155,10 @@ body.fade-out {
     body {
         overflow-y: auto;
     }
+
+    .scene-visual img {
+        max-height: 34vh;
+    }
 }
 </style>
 </head>
@@ -164,12 +175,12 @@ body.fade-out {
 
     <!-- TITLE -->
     <div class="scene-title">
-        Meeting with CPD
+        Construction Project Delivery (CPD)
     </div>
 
     <!-- VISUAL -->
     <div class="scene-visual">
-        🏗️
+        <img src="scene16.png" alt="Construction Project Delivery activities">
     </div>
 
     <!-- DIALOGUE -->
@@ -177,18 +188,18 @@ body.fade-out {
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            One day, MC has the opportunity to meet a representative from the
+            One day, you have the opportunity to meet a representative from the
             <strong>Construction Project Delivery (CPD)</strong> team.<br><br>
 
-            He takes the chance to express his appreciation for the work carried out
-            around his office — from the newly constructed buildings to the improved
+            You take the chance to express your appreciation for the work carried out
+            around your office — from the newly constructed buildings to the improved
             access roads and supporting facilities.<br><br>
 
             The CPD officer explains how their team oversees the planning, coordination,
             and execution of construction works to ensure developments are delivered
             safely, efficiently, and in line with requirements.<br><br>
 
-            Looking around at the completed infrastructure, MC feels confident knowing
+            Looking around at the completed infrastructure, you feel confident knowing
             that behind each development is a dedicated team ensuring quality delivery.<br><br>
 
             What once began as an empty space has now transformed into a thriving,

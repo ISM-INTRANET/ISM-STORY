@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Who to meet: Part 3</title>
+<title>Redirect to the right team</title>
 
 <style>
 /* ==================================================
@@ -31,6 +31,7 @@ body {
     opacity: 1;
     transition: opacity 0.6s ease;
 }
+
 body.fade-out {
     opacity: 0;
 }
@@ -85,12 +86,12 @@ body.fade-out {
 }
 
 .scene-visual img {
-    width: min(70vw, 420px);
-    max-height: 40vh;
+    width: min(80vw, 420px);
+    max-height: 42vh;
     object-fit: contain;
     filter:
         drop-shadow(0 0 24px rgba(255, 215, 120, 0.35))
-        drop-shadow(0 0 60px rgba(0,0,0,0.7));
+        drop-shadow(0 0 60px rgba(0, 0, 0, 0.7));
 }
 
 /* ==================================================
@@ -115,22 +116,8 @@ body.fade-out {
 
 .dialogue-text {
     font-size: clamp(15px, 2.3vw, 17px);
-    line-height: 1.5;
+    line-height: 1.55;
     color: #eaeaea;
-}
-
-/* ==================================================
-   QUESTION BLOCK (MATCH SCENE 6)
-================================================== */
-.question-block {
-    text-align: center;
-    margin-top: 16px;
-    font-size: clamp(16px, 2.6vw, 20px);
-    line-height: 1.6;
-}
-
-.question-block strong {
-    font-size: clamp(18px, 3vw, 22px);
 }
 
 /* ==================================================
@@ -138,14 +125,14 @@ body.fade-out {
 ================================================== */
 .choice-buttons {
     display: flex;
-    gap: 16px;
-    margin-top: 20px;
+    gap: 18px;
+    margin-top: 18px;
 }
 
 .choice-buttons button {
     flex: 1;
-    padding: 18px 12px;
-    font-size: clamp(15px, 2.2vw, 18px);
+    padding: 18px 0;
+    font-size: clamp(16px, 2.4vw, 19px);
     font-weight: bold;
     border-radius: 16px;
     border: 1px solid rgba(255, 215, 120, 0.25);
@@ -153,15 +140,15 @@ body.fade-out {
     color: #f2f2f2;
     background: linear-gradient(145deg, #262626, #121212);
     box-shadow: 0 10px 26px rgba(0,0,0,0.75);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
 }
 
 .choice-buttons button:hover {
     transform: translateY(-2px);
     border: 1px solid rgba(255, 215, 120, 0.8);
     box-shadow:
-        0 16px 42px rgba(0,0,0,0.9),
-        0 0 22px rgba(255,215,120,0.4);
+        0 14px 36px rgba(0,0,0,0.9),
+        0 0 24px rgba(255,215,120,0.45);
 }
 
 /* ==================================================
@@ -187,12 +174,12 @@ body.fade-out {
 
     <!-- TITLE -->
     <div class="scene-title">
-        Who to meet: Part 3
+        Redirect to the right team
     </div>
 
     <!-- VISUAL -->
     <div class="scene-visual">
-        <img src="scene15.png" alt="Completed development near office">
+        <img src="scene16-icd.png" alt="Meeting with Industry Cluster Development">
     </div>
 
     <!-- DIALOGUE -->
@@ -200,23 +187,18 @@ body.fade-out {
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            With the new buildings completed and access roads now fully open,
-            the area around your office feels noticeably more connected
-            and vibrant.<br><br>
+            You meet with a representative from the Industry Cluster Development (ICD) team and share your appreciation for the new buildings and improved access around your office.<br><br>
 
-            As you step outside one afternoon, you notice a BEDB officer
-            nearby and feel a sense of appreciation for the work that made
-            this development possible.<br><br>
+The officer explains that their work focuses on long-term planning, business clustering, and shaping the broader ecosystem strategy.<br><br>
 
-            <div class="question-block">
-                <strong>Question:</strong><br>
-                Which <strong>ISM team</strong> is this officer most likely from?<br><br>
-            </div>
+While these developments support growth, they note that the coordination and delivery of construction works and site infrastructure are handled by another team within ISM that manages on-the-ground execution.<br><br>
+
+With this understanding, you have a clearer sense of who would be best placed to address matters related to completed buildings and surrounding infrastructure.<br><br>
         </div>
 
         <div class="choice-buttons">
-            <button onclick="correctAnswer()">Construction Project Delivery (CPD)</button>
-            <button onclick="wrongAnswer()">Industry Cluster Development (ICD)</button>
+            <button onclick="goCPD()">Construction Project Delivery (CPD)</button>
+            <button onclick="stayICD()">Industry Cluster Development (ICD)</button>
         </div>
     </div>
 
@@ -230,15 +212,15 @@ function goHome() {
 
 function goBack() {
     document.body.classList.add("fade-out");
-    setTimeout(() => window.location.href = "scene14.html", 600);
+    setTimeout(() => window.location.href = "scene15.html", 600);
 }
 
-function correctAnswer() {
+function goCPD() {
     document.body.classList.add("fade-out");
     setTimeout(() => window.location.href = "scene16.html", 600);
 }
 
-function wrongAnswer() {
+function stayICD() {
     document.body.classList.add("fade-out");
     setTimeout(() => window.location.href = "scene16-icd.html", 600);
 }
