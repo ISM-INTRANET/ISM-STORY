@@ -23,7 +23,7 @@ html, body {
     background: radial-gradient(circle at top, #1c1c1c 0%, #000 65%);
     color: #ffffff;
     overflow-x: hidden;
-    overflow-y: auto; /* 🔑 scroll only when needed */
+    overflow-y: auto;
 }
 
 /* =====================
@@ -41,7 +41,7 @@ body.fade-out {
    SCENE LAYOUT
 ===================== */
 .scene {
-    min-height: 100svh; /* mobile-safe viewport */
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
     padding: clamp(16px, 4vw, 40px);
@@ -125,8 +125,13 @@ body.fade-out {
     color: #eaeaea;
 }
 
-/* Highlight */
+/* Highlights */
 .highlight-baa {
+    color: #009163;
+    font-weight: bold;
+}
+
+.highlight-bedb {
     color: #ffd56b;
     font-weight: bold;
 }
@@ -196,14 +201,16 @@ body.fade-out {
 
         <div class="dialogue-text">
             You are welcomed by the
-            <span class="highlight-baa">Business Assessment and Allocation (BAA)</span>
-            team at BEDB.<br><br>
+            <span class="highlight-baa">Business Assessment and Allocation (BAA) team</span>
+            at <span class="highlight-bedb">BEDB</span>.<br><br>
 
-            They guide you through the application process step by step, helping you prepare
-            the necessary documents and clarifying requirements based on your business needs.<br><br>
+            They guide you through the <strong>application process</strong> step by step,
+            helping you <strong>prepare the necessary documents</strong> and
+            <strong>clarifying requirements</strong> based on your business needs.<br><br>
 
-            Your proposal then enters the screening and assessment stage, where your business
-            plan, operational readiness, and site requirements are carefully reviewed.<br><br>
+            Your proposal then enters the <strong>screening and assessment</strong> stage,
+            where your business plan, operational readiness, and
+            <strong>site requirements</strong> are carefully reviewed.<br><br>
 
             What once felt complex now feels structured, supported, and within reach.
         </div>

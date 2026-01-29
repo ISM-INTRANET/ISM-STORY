@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Facilities Issue Resolved</title>
+<title>Clarifying the Next Step</title>
 
 <style>
 /* ==================================================
-   RESET & BASE
+   GLOBAL RESET & BASE
 ================================================== */
 * {
     box-sizing: border-box;
@@ -31,7 +31,6 @@ body {
     opacity: 1;
     transition: opacity 0.6s ease;
 }
-
 body.fade-out {
     opacity: 0;
 }
@@ -43,7 +42,7 @@ body.fade-out {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: clamp(16px, 4vw, 48px);
+    padding: clamp(18px, 4vw, 48px);
 }
 
 /* ==================================================
@@ -65,36 +64,33 @@ body.fade-out {
     box-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
 
-.top-bar button:hover {
-    background: rgba(70, 70, 70, 0.95);
-}
-
 /* ==================================================
    TITLE
 ================================================== */
 .scene-title {
     text-align: center;
-    font-size: clamp(22px, 3vw, 36px);
-    margin: 16px 0 10px;
+    font-size: clamp(24px, 3.5vw, 36px);
+    margin: 16px 0 18px;
     letter-spacing: 0.6px;
 }
 
 /* ==================================================
-   VISUAL (IMAGE)
+   VISUAL
 ================================================== */
 .scene-visual {
+    flex: 1;
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin-bottom: 16px;
 }
 
 .scene-visual img {
-    width: min(80vw, 520px);
+    width: min(78vw, 500px);
     max-height: 42vh;
     object-fit: contain;
     filter:
-        drop-shadow(0 0 28px rgba(255, 215, 120, 0.35))
-        drop-shadow(0 0 70px rgba(0, 0, 0, 0.7));
+        drop-shadow(0 0 32px rgba(255, 200, 120, 0.35))
+        drop-shadow(0 0 80px rgba(0, 0, 0, 0.7));
 }
 
 /* ==================================================
@@ -103,10 +99,10 @@ body.fade-out {
 .dialogue-box {
     width: 100%;
     max-width: 1100px;
-    margin: 0 auto 18px;
+    margin: 0 auto 16px;
     background: rgba(18, 18, 18, 0.95);
     border-radius: 18px;
-    padding: clamp(16px, 2.5vw, 22px);
+    padding: clamp(16px, 3vw, 22px);
     box-shadow: 0 14px 40px rgba(0,0,0,0.85);
     border: 1px solid rgba(255,255,255,0.06);
 }
@@ -118,40 +114,74 @@ body.fade-out {
 }
 
 .dialogue-text {
-    font-size: clamp(14px, 2.2vw, 17px);
-    line-height: 1.55;
+    font-size: clamp(14px, 2.2vw, 16px);
+    line-height: 1.5;
     color: #eaeaea;
 }
 
 /* ==================================================
-   ACTION BUTTON
+   TEXT HIGHLIGHTS
 ================================================== */
-.dialogue-actions {
-    text-align: right;
-    margin-top: 18px;
-}
-
-.dialogue-actions button {
-    font-size: 15px;
-    padding: 10px 26px;
-    border-radius: 12px;
-    border: none;
-    background: linear-gradient(145deg, #262626, #121212);
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.65);
-}
-
-.dialogue-actions button:hover {
-    transform: translateY(-1px);
+.highlight-green {
+    color: #009163;
+    font-weight: bold;
 }
 
 /* ==================================================
-   SHORT SCREEN SAFETY
+   CHOICE BUTTONS
 ================================================== */
+.choice-buttons {
+    display: flex;
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.choice-buttons button {
+    flex: 1;
+    padding: 18px 0;
+    font-size: clamp(16px, 2.4vw, 20px);
+    font-weight: bold;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 215, 120, 0.25);
+    cursor: pointer;
+    color: #f2f2f2;
+    background: linear-gradient(145deg, #262626, #121212);
+    box-shadow:
+        0 10px 26px rgba(0,0,0,0.75);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border 0.25s ease;
+}
+
+.choice-buttons button:hover {
+    transform: translateY(-2px);
+    border: 1px solid rgba(255, 215, 120, 0.8);
+    box-shadow:
+        0 16px 42px rgba(0,0,0,0.9),
+        0 0 28px rgba(255,215,120,0.45);
+}
+
+.choice-buttons button:active {
+    transform: translateY(1px);
+}
+
+/* ==================================================
+   MOBILE + ZOOM SAFETY
+================================================== */
+@media (max-width: 768px) {
+    .choice-buttons {
+        flex-direction: column;
+    }
+}
+
 @media (max-height: 720px) {
     body {
         overflow-y: auto;
+    }
+
+    .scene-visual img {
+        max-height: 34vh;
     }
 }
 </style>
@@ -169,12 +199,12 @@ body.fade-out {
 
     <!-- TITLE -->
     <div class="scene-title">
-        Facilities Issue Resolved
+        Clarifying the Next Step
     </div>
 
     <!-- VISUAL -->
     <div class="scene-visual">
-        <img src="scene10.png" alt="Facilities issue resolved by FMT">
+        <img src="scene7-baa.png" alt="Meeting with BAA team">
     </div>
 
     <!-- DIALOGUE -->
@@ -182,31 +212,21 @@ body.fade-out {
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            Shortly after submitting the report, you are contacted by the
-            <span style="color:#009163;font-weight:bold;">
-                Facilities Management Team (FMT)
-            </span>
-            regarding the <strong>issues</strong> affecting your office.<br><br>
+            You meet with the
+            <span class="highlight-green">Business Assessment and Allocation (BAA)
+            team</span> to proceed with the next step of your journey.<br><br>
 
-            The team <strong>responds</strong> promptly, arranging a
-            <span style="color:#009163;font-weight:bold;">site inspection</span>
-            to <strong>assess</strong> the air-conditioning fault and water supply disruption.<br><br>
+            As the discussion unfolds, the team acknowledges that your <strong>application</strong> has already progressed beyond <strong>assessment and allocation</strong>, and helps <strong>clarify</strong> what needs to happen at this stage of your journey.<br><br>
 
-            After identifying the root causes, repairs are carried out efficiently,
-            restoring the
-            <span style="color:#009163;font-weight:bold;">facilities</span>
-            to full operational condition.<br><br>
 
-            With everything functioning smoothly again, you are able to maintain
-            productivity and focus on growing the business — confident that dependable
-            operational support is always within reach.<br><br>
-
-            Over time, this stability allows your business to mature, expand its network,
-            and explore opportunities beyond local operations.
+            Recognising where you are now in your journey, the team helps move things forward.
+            The conversation shifts from assessment to what needs to happen next,
+            ensuring your progress continues without delay.<br><br>
         </div>
 
-        <div class="dialogue-actions">
-            <button onclick="goNext()">Continue ▶</button>
+        <div class="choice-buttons">
+            <button onclick="stayBAA()">Business Assessment & Allocation (BAA)</button>
+            <button onclick="goTMT()">Tenant Management Team (TMT)</button>
         </div>
     </div>
 
@@ -220,12 +240,17 @@ function goHome() {
 
 function goBack() {
     document.body.classList.add("fade-out");
-    setTimeout(() => window.location.href = "scene9-1.html", 600);
+    setTimeout(() => window.location.href = "scene6.html", 600);
 }
 
-function goNext() {
+function stayBAA() {
     document.body.classList.add("fade-out");
-    setTimeout(() => window.location.href = "scene11.html", 600);
+    setTimeout(() => window.location.href = "scene7-baa.html", 600);
+}
+
+function goTMT() {
+    document.body.classList.add("fade-out");
+    setTimeout(() => window.location.href = "scene7.html", 600);
 }
 </script>
 

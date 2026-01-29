@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Scene 6 — Knowledge Check</title>
+<title>Who to meet?</title>
 
 <style>
 /* ==================================================
-   GLOBAL RESET & BASE (MATCH SCENE 4)
+   GLOBAL RESET & BASE
 ================================================== */
 * {
     box-sizing: border-box;
@@ -31,7 +31,6 @@ body {
     opacity: 1;
     transition: opacity 0.6s ease;
 }
-
 body.fade-out {
     opacity: 0;
 }
@@ -76,7 +75,7 @@ body.fade-out {
 }
 
 /* ==================================================
-   VISUAL (SYMBOLIC)
+   VISUAL
 ================================================== */
 .scene-visual {
     flex: 1;
@@ -85,9 +84,13 @@ body.fade-out {
     justify-content: center;
 }
 
-.scene-visual span {
-    font-size: clamp(44px, 6vw, 56px);
-    opacity: 0.5;
+.scene-visual img {
+    width: min(70vw, 420px);
+    max-height: 40vh;
+    object-fit: contain;
+    filter:
+        drop-shadow(0 0 24px rgba(255, 215, 120, 0.35))
+        drop-shadow(0 0 60px rgba(0,0,0,0.7));
 }
 
 /* ==================================================
@@ -114,6 +117,20 @@ body.fade-out {
     font-size: clamp(15px, 2.3vw, 17px);
     line-height: 1.5;
     color: #eaeaea;
+}
+
+/* ==================================================
+   QUESTION BLOCK (MATCH SCENE 3)
+================================================== */
+.question-block {
+    text-align: center;
+    margin-top: 12px;
+    font-size: clamp(16px, 2.6vw, 20px);
+    line-height: 1.6;
+}
+
+.question-block strong {
+    font-size: clamp(18px, 3vw, 22px);
 }
 
 /* ==================================================
@@ -152,7 +169,7 @@ body.fade-out {
 }
 
 /* ==================================================
-   MOBILE STACK
+   MOBILE
 ================================================== */
 @media (max-width: 768px) {
     .choice-buttons {
@@ -161,15 +178,15 @@ body.fade-out {
 }
 
 /* ==================================================
-   ZOOM / SHORT SCREEN SAFETY
+   ZOOM SAFETY
 ================================================== */
 @media (max-height: 720px) {
     body {
         overflow-y: auto;
     }
 
-    .scene-visual span {
-        font-size: 36px;
+    .scene-visual img {
+        max-height: 32vh;
     }
 }
 </style>
@@ -187,28 +204,32 @@ body.fade-out {
 
     <!-- TITLE -->
     <div class="scene-title">
-        Knowledge Check
+        Who to meet?
     </div>
 
     <!-- VISUAL -->
     <div class="scene-visual">
-        <span>❓</span>
+        <img src="scene6.png" alt="Call to sign tenancy agreement">
     </div>
 
-    <!-- QUESTION -->
+    <!-- DIALOGUE -->
     <div class="dialogue-box">
-        <div class="speaker">Question</div>
+        <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            Within the ISM team, who is responsible for handling the
-            <strong>tenancy agreement</strong> and providing the official
-            <strong>Surat Pesembah</strong>?
+            You receive a call informing you that your <strong>application</strong> has progressed,
+            and you are required to come in to
+            <strong>sign</strong> the <span style="color:#009163;font-weight:bold;">tenancy agreement</span>.<br><br>
+
+            <div class="question-block">
+                <strong>Question:</strong><br>
+                Which <span style="color:#009163;font-weight:bold;">ISM Team</span> should you meet for this next step?<br><br>
+            </div>
         </div>
 
         <div class="choice-buttons">
             <button onclick="wrongAnswer()">Business Assessment & Allocation (BAA)</button>
             <button onclick="correctAnswer()">Tenant Management Team (TMT)</button>
-            <button onclick="wrongAnswer()">Facilities Management Team (FMT)</button>
         </div>
     </div>
 
@@ -232,7 +253,7 @@ function correctAnswer() {
 
 function wrongAnswer() {
     document.body.classList.add("fade-out");
-    setTimeout(() => window.location.href = "scene6.html", 600);
+    setTimeout(() => window.location.href = "scene7-baa.html", 600);
 }
 </script>
 

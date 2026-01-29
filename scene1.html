@@ -37,7 +37,7 @@ body.fade-out {
 }
 
 /* ==================================================
-   SCENE LAYOUT (MATCHES SCENE 4)
+   SCENE LAYOUT
 ================================================== */
 .scene {
     min-height: 100vh;
@@ -95,7 +95,7 @@ body.fade-out {
 }
 
 /* ==================================================
-   DIALOGUE BOX (COMPACT LIKE SCENE 4)
+   DIALOGUE BOX
 ================================================== */
 .dialogue-box {
     width: 100%;
@@ -118,6 +118,19 @@ body.fade-out {
     font-size: clamp(14px, 2.2vw, 16px);
     line-height: 1.5;
     color: #eaeaea;
+}
+
+/* ==================================================
+   TEXT HIGHLIGHTS
+================================================== */
+.highlight-green {
+    color: #009163;
+    font-weight: bold;
+}
+
+.highlight-yellow {
+    color: #ffd56b;
+    font-weight: bold;
 }
 
 /* ==================================================
@@ -144,7 +157,7 @@ body.fade-out {
 }
 
 /* ==================================================
-   ZOOM & SHORT SCREEN SAFETY
+   SHORT SCREEN SAFETY
 ================================================== */
 @media (max-height: 720px) {
     body {
@@ -182,19 +195,19 @@ body.fade-out {
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            You are an IT specialist running your business from home.<br><br>
+            You are an <strong>IT Specialist</strong> running your business from <strong>home</strong>.<br><br>
 
             What once felt manageable no longer does. More clients are coming in.
-            Projects are piling up. Your team is growing — and so are expectations.<br><br>
+            Projects are piling up. Your team is <span class="highlight-yellow">growing</span> — and so are expectations.<br><br>
 
-            Slowly, the limits of working from home become clear.
+            Slowly, the limits of working from <strong>home</strong> become clear.
             Meetings spill into living spaces. Collaboration feels constrained.
             Focus is harder to maintain.<br><br>
 
-            If your business is going to move forward, you know something has to change.<br><br>
+            If your business is going to move forward, you know something has to <strong>change</strong>.<br><br>
 
-            You need a space that matches your ambition —
-            a place where your team can collaborate, build, and grow.
+            You need <span class="highlight-green">a space</span> that matches your ambition —
+            <span class="highlight-green">a place</span> where your team can <strong>collaborate, build, and grow</strong>.
         </div>
 
         <div class="dialogue-actions">

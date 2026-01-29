@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Scene 9 — Facilities Issue</title>
+<title>Time Skip</title>
 
 <style>
 /* ==================================================
-   GLOBAL RESET & BASE (MATCH SCENE 4)
+   GLOBAL RESET & BASE
 ================================================== */
 * {
     box-sizing: border-box;
@@ -31,7 +31,6 @@ body {
     opacity: 1;
     transition: opacity 0.6s ease;
 }
-
 body.fade-out {
     opacity: 0;
 }
@@ -76,19 +75,26 @@ body.fade-out {
 }
 
 /* ==================================================
-   VISUAL (SYMBOLIC)
+   VISUAL (IMAGE)
 ================================================== */
 .scene-visual {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 4px;
 }
 
-.scene-visual span {
-    font-size: clamp(44px, 6vw, 56px);
-    opacity: 0.5;
+
+.scene-visual img {
+    width: min(95vw, 760px);   /* ⬅ noticeably bigger */
+    max-height: 58vh;          /* ⬅ stronger visual presence */
+    object-fit: contain;
+    filter:
+        drop-shadow(0 0 36px rgba(255, 215, 120, 0.45))
+        drop-shadow(0 0 90px rgba(0, 0, 0, 0.8));
 }
+
 
 /* ==================================================
    DIALOGUE BOX
@@ -117,34 +123,26 @@ body.fade-out {
 }
 
 /* ==================================================
-   CHOICE BUTTONS
+   ACTION BUTTON
 ================================================== */
-.choice-buttons {
-    display: flex;
-    gap: 18px;
+.dialogue-actions {
     margin-top: 18px;
+    text-align: right;
 }
 
-.choice-buttons button {
-    flex: 1;
-    padding: 18px 0;
-    font-size: clamp(16px, 2.4vw, 19px);
-    font-weight: bold;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 215, 120, 0.25);
-    cursor: pointer;
-    color: #f2f2f2;
+.dialogue-actions button {
+    font-size: 15px;
+    padding: 10px 26px;
+    border-radius: 12px;
+    border: none;
     background: linear-gradient(145deg, #262626, #121212);
-    box-shadow: 0 10px 26px rgba(0,0,0,0.75);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.65);
 }
 
-.choice-buttons button:hover {
-    transform: translateY(-2px);
-    border: 1px solid rgba(255, 215, 120, 0.8);
-    box-shadow:
-        0 14px 36px rgba(0,0,0,0.9),
-        0 0 24px rgba(255,215,120,0.45);
+.dialogue-actions button:hover {
+    transform: translateY(-1px);
 }
 
 /* ==================================================
@@ -155,14 +153,8 @@ body.fade-out {
         overflow-y: auto;
     }
 
-    .scene-visual span {
-        font-size: 36px;
-    }
-}
-
-@media (max-width: 768px) {
-    .choice-buttons {
-        flex-direction: column;
+    .scene-visual img {
+        max-height: 36vh;
     }
 }
 </style>
@@ -180,12 +172,12 @@ body.fade-out {
 
     <!-- TITLE -->
     <div class="scene-title">
-        Facilities Issue
+        Time Skip
     </div>
 
     <!-- VISUAL -->
     <div class="scene-visual">
-        <span>🚰 ❄️</span>
+        <img src="scene9.png" alt="Time passes at ADTP office">
     </div>
 
     <!-- DIALOGUE -->
@@ -193,20 +185,26 @@ body.fade-out {
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            You have been operating from your office at ADTP for some time now,
-            focusing on day-to-day business activities.<br><br>
+    Fast forward, you have settled into your
+    <span style="color:#009163;font-weight:bold;">new office</span>
+    at
+    <span style="color:#009163;font-weight:bold;">ADTP</span>,
+    focusing on day-to-day
+    <strong>business operations</strong>
+    and
+    <strong>growth</strong>.<br><br>
 
-            One morning, you notice that the air-conditioner in your office is no longer working.
-            Shortly after, you realise there is also no water supply in the office toilet.<br><br>
+    One day, an unexpected <strong>issue</strong> arises — the air-conditioner in your office
+    is no longer working. Shortly after, you realise there is also no water supply
+    in the office toilet.<br><br>
 
-            Recognising that these issues may affect daily operations,
-            you consider who within the ISM team you should contact for assistance.
-        </div>
+    It’s a small disruption — but one that needs attention.
+</div>
 
-        <div class="choice-buttons">
-            <button onclick="wrongAnswer()">Business Assessment & Allocation (BAA)</button>
-            <button onclick="wrongAnswer()">Tenant Management Team (TMT)</button>
-            <button onclick="correctAnswer()">Facilities Management Team (FMT)</button>
+
+
+        <div class="dialogue-actions">
+            <button onclick="goNext()">Continue ▶</button>
         </div>
     </div>
 
@@ -223,14 +221,9 @@ function goBack() {
     setTimeout(() => window.location.href = "scene8.html", 600);
 }
 
-function correctAnswer() {
+function goNext() {
     document.body.classList.add("fade-out");
-    setTimeout(() => window.location.href = "scene10.html", 600);
-}
-
-function wrongAnswer() {
-    document.body.classList.add("fade-out");
-    setTimeout(() => window.location.href = "scene9.html", 600);
+    setTimeout(() => window.location.href = "scene9-1.html", 600);
 }
 </script>
 

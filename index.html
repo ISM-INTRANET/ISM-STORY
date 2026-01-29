@@ -21,7 +21,20 @@ html, body {
     height: 100%;
     font-family: "Segoe UI", Arial, Helvetica, sans-serif;
     background: radial-gradient(circle at top, #1c1c1c 0%, #000 65%);
-    color: #fff;
+    color: #ffffff;
+}
+
+/* ==================================================
+   BRAND HIGHLIGHTS (CONTENT ONLY)
+================================================== */
+.bedb {
+    color: #DAA900;
+    font-weight: 600;
+}
+
+.ism {
+    color: #009163;
+    font-weight: 600;
 }
 
 /* ==================================================
@@ -37,7 +50,7 @@ body.fade-out {
 }
 
 /* ==================================================
-   SCENE LAYOUT (MATCHES SCENE 4)
+   MAIN SCENE LAYOUT
 ================================================== */
 .scene {
     min-height: 100vh;
@@ -47,12 +60,12 @@ body.fade-out {
 }
 
 /* ==================================================
-   TITLE
+   TITLE (PLAIN)
 ================================================== */
 .scene-title {
     text-align: center;
     font-size: clamp(26px, 3.5vw, 42px);
-    margin: 12px 0 18px;
+    margin: 12px 0 20px;
     letter-spacing: 0.6px;
 }
 
@@ -77,31 +90,24 @@ body.fade-out {
 }
 
 /* ==================================================
-   CONTENT BOX (LIKE DIALOGUE BOX)
+   INTRO TEXT
 ================================================== */
-.content-box {
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto 18px;
-    background: rgba(18, 18, 18, 0.95);
-    border-radius: 18px;
-    padding: clamp(18px, 3vw, 26px);
-    box-shadow: 0 14px 40px rgba(0,0,0,0.85);
-    border: 1px solid rgba(255,255,255,0.06);
+.intro {
+    max-width: 900px;
+    margin: 0 auto;
     text-align: center;
-}
-
-.content-text {
     font-size: clamp(14px, 2.2vw, 17px);
-    line-height: 1.6;
-    color: #e0e0e0;
+    line-height: 1.7;
+    color: #d8d8d8;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
 
 /* ==================================================
    START BUTTON
 ================================================== */
 .start-btn {
-    margin-top: 20px;
+    text-align: center;
+    margin: 26px 0 10px;
 }
 
 .start-btn button {
@@ -110,7 +116,7 @@ body.fade-out {
     border: none;
     border-radius: 14px;
     background: linear-gradient(145deg, #262626, #121212);
-    color: white;
+    color: #ffffff;
     cursor: pointer;
     box-shadow: 0 10px 24px rgba(0,0,0,0.7);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -126,17 +132,17 @@ body.fade-out {
 }
 
 /* ==================================================
-   FOOTER (SCENE 4 SAFE STYLE)
+   FOOTER
 ================================================== */
 .footer {
     text-align: center;
     font-size: 13px;
-    color: #d0d0d0;
+    color: #cfcfcf;
     margin-top: 16px;
 }
 
 .name-highlight {
-    color: #daa900;
+    color: #DAA900;
     font-weight: 600;
 }
 
@@ -174,23 +180,22 @@ body.fade-out {
         <img src="journey.png" alt="Startup to Success Journey">
     </div>
 
-    <!-- CONTENT -->
-    <div class="content-box">
-        <div class="content-text">
-            This simulation places you in the role of a business owner navigating the journey
-            of becoming a BEDB tenant.<br><br>
+    <!-- INTRO TEXT -->
+    <div class="intro">
+        This simulation places you in the role of a business owner navigating the journey
+        of becoming a <span class="bedb">BEDB Tenant</span>.<br><br>
 
-            Through a series of scenarios and decisions, you will explore how different teams
-            within BEDB and ISM support businesses — from initial interest and application,
-            to tenancy and ongoing operations.<br><br>
+        Through a series of scenarios and decisions, you will explore how teams within the
+        <span class="ism">ISM Department</span> at <span class="bedb">BEDB</span> support businesses —
+        <strong>from initial interest and applications, through tenancy and ongoing operations.</strong><br><br>
 
-            Your choices help illustrate the roles, responsibilities, and impact of each step
-            in the BEDB tenant journey.
-        </div>
+        Your choices help illustrate the roles, responsibilities, and impact of each step
+        in the <span class="bedb">BEDB Tenant Journey</span>.
+    </div>
 
-        <div class="start-btn">
-            <button onclick="startGame()">START</button>
-        </div>
+    <!-- START BUTTON -->
+    <div class="start-btn">
+        <button onclick="startGame()">START</button>
     </div>
 
     <!-- FOOTER -->

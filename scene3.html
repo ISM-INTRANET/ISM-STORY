@@ -8,7 +8,7 @@
 
 <style>
 /* ==================================================
-   GLOBAL RESET & BASE (MATCH SCENE 4)
+   GLOBAL RESET & BASE
 ================================================== */
 * {
     box-sizing: border-box;
@@ -37,7 +37,7 @@ body.fade-out {
 }
 
 /* ==================================================
-   SCENE LAYOUT (IDENTICAL TO SCENE 4)
+   SCENE LAYOUT
 ================================================== */
 .scene {
     min-height: 100vh;
@@ -86,8 +86,8 @@ body.fade-out {
 }
 
 .scene-visual img {
-    width: min(82vw, 520px);
-    max-height: 42vh;
+    width: min(78vw, 500px);
+    max-height: 36vh;
     object-fit: contain;
     filter:
         drop-shadow(0 0 32px rgba(255, 200, 120, 0.35))
@@ -103,7 +103,7 @@ body.fade-out {
     margin: 0 auto 16px;
     background: rgba(18, 18, 18, 0.95);
     border-radius: 18px;
-    padding: clamp(16px, 3vw, 22px);
+    padding: clamp(20px, 3.5vw, 28px);
     box-shadow: 0 14px 40px rgba(0,0,0,0.85);
     border: 1px solid rgba(255,255,255,0.06);
 }
@@ -121,12 +121,32 @@ body.fade-out {
 }
 
 /* ==================================================
+   QUESTION STYLING
+================================================== */
+.question-block {
+    text-align: center;
+    margin-top: 12px;
+    font-size: clamp(16px, 2.6vw, 20px);
+    line-height: 1.6;
+}
+
+.question-block strong {
+    font-size: clamp(18px, 3vw, 22px);
+}
+
+/* ISM highlight */
+.highlight-ism {
+    color: #009163;
+    font-weight: bold;
+}
+
+/* ==================================================
    CHOICE BUTTONS
 ================================================== */
 .choice-buttons {
     display: flex;
     gap: 18px;
-    margin-top: 18px;
+    margin-top: 22px;
 }
 
 .choice-buttons button {
@@ -138,12 +158,8 @@ body.fade-out {
     border: 1px solid rgba(255, 215, 120, 0.25);
     cursor: pointer;
     color: #f2f2f2;
-
     background: linear-gradient(145deg, #262626, #121212);
-
-    box-shadow:
-        0 10px 26px rgba(0,0,0,0.75);
-
+    box-shadow: 0 10px 26px rgba(0,0,0,0.75);
     transition:
         transform 0.25s ease,
         box-shadow 0.25s ease,
@@ -163,7 +179,7 @@ body.fade-out {
 }
 
 /* ==================================================
-   MOBILE + ZOOM SAFETY
+   MOBILE + SHORT SCREEN SAFETY
 ================================================== */
 @media (max-width: 768px) {
     .choice-buttons {
@@ -177,7 +193,7 @@ body.fade-out {
     }
 
     .scene-visual img {
-        max-height: 34vh;
+        max-height: 30vh;
     }
 }
 </style>
@@ -212,17 +228,20 @@ body.fade-out {
             <span style="color:#ffd56b;font-weight:bold;">
                 Brunei Economic Development Board (BEDB)
             </span>
-            headquarters.<br><br>
+            Office.<br><br>
 
             Standing at the entrance, you consider your next move.<br><br>
 
-            <strong>Question:</strong> Which team within ISM should you reach out to
-            to discuss your interest?
+            <div class="question-block">
+                <strong>Question:</strong><br>
+                Which team within <span class="highlight-ism">ISM</span> should you reach out to
+                to discuss your interest?<br><br>
+            </div>
         </div>
 
         <div class="choice-buttons">
-            <button onclick="meetBAA()">Business Assessment & Allocation</button>
-            <button onclick="meetTMT()">Tenant Management</button>
+            <button onclick="meetBAA()">Business Assessment & Allocation (BAA)</button>
+            <button onclick="meetTMT()">Tenant Management Team (TMT)</button>
         </div>
     </div>
 

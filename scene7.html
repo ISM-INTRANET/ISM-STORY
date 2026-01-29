@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Scene 7 — Meeting with TMT</title>
+<title>Tenant Management Team (TMT)</title>
 
 <style>
 /* ==================================================
-   GLOBAL RESET & BASE (MATCH SCENE 4)
+   GLOBAL RESET & BASE
 ================================================== */
 * {
     box-sizing: border-box;
@@ -76,7 +76,7 @@ body.fade-out {
 }
 
 /* ==================================================
-   VISUAL (SYMBOLIC)
+   VISUAL
 ================================================== */
 .scene-visual {
     flex: 1;
@@ -85,9 +85,11 @@ body.fade-out {
     justify-content: center;
 }
 
-.scene-visual span {
-    font-size: clamp(42px, 6vw, 54px);
-    opacity: 0.45;
+.scene-visual img {
+    width: min(85vw, 520px);
+    max-height: 42vh;
+    object-fit: contain;
+    filter: drop-shadow(0 0 28px rgba(255, 215, 120, 0.35));
 }
 
 /* ==================================================
@@ -114,6 +116,14 @@ body.fade-out {
     font-size: clamp(15px, 2.3vw, 17px);
     line-height: 1.5;
     color: #eaeaea;
+}
+
+/* ==================================================
+   TEXT HIGHLIGHTS
+================================================== */
+.highlight-green {
+    color: #009163;
+    font-weight: bold;
 }
 
 /* ==================================================
@@ -147,8 +157,8 @@ body.fade-out {
         overflow-y: auto;
     }
 
-    .scene-visual span {
-        font-size: 36px;
+    .scene-visual img {
+        max-height: 34vh;
     }
 }
 </style>
@@ -166,12 +176,12 @@ body.fade-out {
 
     <!-- TITLE -->
     <div class="scene-title">
-        Meeting with Tenant Management Team
+        Tenant Management Team (TMT)
     </div>
 
     <!-- VISUAL -->
     <div class="scene-visual">
-        <span>📝</span>
+        <img src="scene7.png" alt="Meeting with TMT and signing agreement">
     </div>
 
     <!-- DIALOGUE -->
@@ -179,16 +189,18 @@ body.fade-out {
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            You are welcomed by the <strong>Tenant Management Team (TMT)</strong>
+            You are welcomed by the
+            <span class="highlight-green">Tenant Management Team (TMT)</span>
             as the next stage of the process begins.<br><br>
 
             The discussion focuses on clarifying key terms, roles, and responsibilities,
             ensuring that expectations on both sides are clearly understood.<br><br>
 
-            With your questions addressed, the required documents are reviewed together,
+            With your questions addressed, the <strong>required documents</strong> are reviewed together,
             allowing time to go through the details carefully.<br><br>
 
-            Once everything is aligned, both parties proceed to sign off on the agreement,
+            Once everything is aligned, both parties proceed to
+            <strong>sign off</strong> on the <strong>agreement</strong>,
             marking the completion of this phase of the journey.
         </div>
 

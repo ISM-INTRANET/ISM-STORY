@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Scene 5 — Waiting</title>
+<title>Waiting</title>
 
 <style>
 /* ==================================================
@@ -76,7 +76,7 @@ body.fade-out {
 }
 
 /* ==================================================
-   VISUAL (PLACEHOLDER, BALANCED)
+   VISUAL (IMAGE)
 ================================================== */
 .scene-visual {
     flex: 1;
@@ -85,9 +85,12 @@ body.fade-out {
     justify-content: center;
 }
 
-.scene-visual span {
-    font-size: clamp(42px, 6vw, 56px);
-    opacity: 0.5;
+.scene-visual img {
+    width: min(70vw, 420px);
+    max-height: 40vh;
+    object-fit: contain;
+    filter: drop-shadow(0 0 24px rgba(255, 215, 120, 0.35));
+    opacity: 0.95;
 }
 
 /* ==================================================
@@ -147,8 +150,8 @@ body.fade-out {
         overflow-y: auto;
     }
 
-    .scene-visual span {
-        font-size: 36px;
+    .scene-visual img {
+        max-height: 32vh;
     }
 }
 </style>
@@ -166,12 +169,12 @@ body.fade-out {
 
     <!-- TITLE -->
     <div class="scene-title">
-        Scene 5 — Waiting
+        Waiting
     </div>
 
     <!-- VISUAL -->
     <div class="scene-visual">
-        <span>⏳</span>
+        <img src="scene5.png" alt="Waiting while application is processed">
     </div>
 
     <!-- DIALOGUE -->
@@ -179,18 +182,18 @@ body.fade-out {
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            Over the weeks that follow, the application continues to move through
+            Over the weeks that follow, the <strong>application continues</strong> to move through
             its required stages.<br><br>
 
-            Documents are reviewed, internal checks are carried out, and clarifications
+            Documents are <strong>reviewed</strong>, internal checks are carried out, and clarifications
             are addressed as needed.<br><br>
 
             Much of this work happens behind the scenes, following established
-            processes and careful consideration.<br><br>
+            <strong>processes</strong> and careful consideration.<br><br>
 
-            While updates may not come immediately, progress is being made.<br><br>
+            While updates may not come immediately, <strong>progress</strong> is being made.<br><br>
 
-            With the initial groundwork now in place, the next phase is set to
+            With the initial groundwork now in place, <strong>the next phase</strong> is set to
             proceed internally.
         </div>
 
@@ -220,4 +223,3 @@ function goNext() {
 
 </body>
 </html>
-	

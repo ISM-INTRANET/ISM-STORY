@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>At the Wrong Desk</title>
+<title>Understanding the Process</title>
 
 <style>
 /* ==================================================
-   GLOBAL RESET & BASE (MATCH SCENE 4)
+   GLOBAL RESET & BASE
 ================================================== */
 * {
     box-sizing: border-box;
@@ -37,7 +37,7 @@ body.fade-out {
 }
 
 /* ==================================================
-   SCENE LAYOUT (IDENTICAL TO SCENE 4)
+   SCENE LAYOUT
 ================================================== */
 .scene {
     min-height: 100vh;
@@ -121,6 +121,14 @@ body.fade-out {
 }
 
 /* ==================================================
+   TEXT HIGHLIGHTS
+================================================== */
+.highlight-green {
+    color: #009163;
+    font-weight: bold;
+}
+
+/* ==================================================
    CHOICE BUTTONS
 ================================================== */
 .choice-buttons {
@@ -138,12 +146,9 @@ body.fade-out {
     border: 1px solid rgba(255, 215, 120, 0.25);
     cursor: pointer;
     color: #f2f2f2;
-
     background: linear-gradient(145deg, #262626, #121212);
-
     box-shadow:
         0 10px 26px rgba(0,0,0,0.75);
-
     transition:
         transform 0.25s ease,
         box-shadow 0.25s ease,
@@ -195,12 +200,12 @@ body.fade-out {
 
     <!-- TITLE -->
     <div class="scene-title">
-        At the Wrong Desk
+        Understanding the Process
     </div>
 
     <!-- VISUAL -->
     <div class="scene-visual">
-        <img src="scene4-tmt.png" alt="Meeting the wrong team at BEDB">
+        <img src="scene4-tmt.png" alt="Discussion with Tenant Management Team">
     </div>
 
     <!-- DIALOGUE -->
@@ -209,22 +214,25 @@ body.fade-out {
 
         <div class="dialogue-text">
             You are greeted by an officer who listens carefully as you explain your interest
-            in securing a space for your business.<br><br>
+            in securing a <span class="highlight-green">space</span> for your business.<br><br>
 
-            As the discussion continues, it becomes clear that this team focuses on
-            <strong>tenant-related matters</strong>, rather than handling
-            <strong>business applications and assessments</strong>.<br><br>
+            As the discussion continues, the officer takes time to walk you through the
+            <strong>process</strong> and how different teams support businesses at different stages.
+            The <span class="highlight-green">Tenant Management Team (TMT)</span> focuses on
+            <strong>tenant-related matters</strong>, ensuring businesses receive the
+            <strong>right support</strong> once they are in place.<br><br>
 
-            The officer politely explains that applications are managed by a different team
-            and points you toward the right starting point.<br><br>
+            To help move your enquiry forward, the officer explains that the
+            <strong>initial application and allocation process</strong> is handled separately,
+            and prepares you for the next step in your journey.<br><br>
 
-            With this clarification, you step back into the lobby—now better informed
-            and ready to approach the correct team.
+            With a clearer understanding of the <strong>process</strong>, you’re now better equipped
+            to decide who to speak with next.
         </div>
 
         <div class="choice-buttons">
-            <button onclick="goBAA()">Business Assessment & Allocation</button>
-            <button onclick="stayTMT()">Tenant Management</button>
+            <button onclick="goBAA()">Business Assessment & Allocation (BAA)</button>
+            <button onclick="stayTMT()">Tenant Management Team (TMT)</button>
         </div>
     </div>
 

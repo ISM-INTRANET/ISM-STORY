@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Scene 8 — A New Beginning</title>
+<title>A New Beginning</title>
 
 <style>
 /* ==================================================
-   GLOBAL RESET & BASE (MATCH SCENE 4)
+   GLOBAL RESET & BASE
 ================================================== */
 * {
     box-sizing: border-box;
@@ -31,7 +31,6 @@ body {
     opacity: 1;
     transition: opacity 0.6s ease;
 }
-
 body.fade-out {
     opacity: 0;
 }
@@ -76,7 +75,7 @@ body.fade-out {
 }
 
 /* ==================================================
-   VISUAL (SYMBOLIC)
+   VISUAL (IMAGE)
 ================================================== */
 .scene-visual {
     flex: 1;
@@ -85,9 +84,13 @@ body.fade-out {
     justify-content: center;
 }
 
-.scene-visual span {
-    font-size: clamp(44px, 6vw, 56px);
-    opacity: 0.55;
+.scene-visual img {
+    width: min(85vw, 520px);
+    max-height: 42vh;
+    object-fit: contain;
+    filter:
+        drop-shadow(0 0 28px rgba(255, 215, 120, 0.35))
+        drop-shadow(0 0 70px rgba(0, 0, 0, 0.7));
 }
 
 /* ==================================================
@@ -114,6 +117,19 @@ body.fade-out {
     font-size: clamp(15px, 2.3vw, 17px);
     line-height: 1.5;
     color: #eaeaea;
+}
+
+/* ==================================================
+   TEXT HIGHLIGHTS
+================================================== */
+.highlight-green {
+    color: #009163;
+    font-weight: bold;
+}
+
+.highlight-yellow {
+    color: #ffd56b;
+    font-weight: bold;
 }
 
 /* ==================================================
@@ -147,8 +163,8 @@ body.fade-out {
         overflow-y: auto;
     }
 
-    .scene-visual span {
-        font-size: 36px;
+    .scene-visual img {
+        max-height: 34vh;
     }
 }
 </style>
@@ -171,7 +187,7 @@ body.fade-out {
 
     <!-- VISUAL -->
     <div class="scene-visual">
-        <span>🏢</span>
+        <img src="scene8.png" alt="New beginning at BEDB facility">
     </div>
 
     <!-- DIALOGUE -->
@@ -179,21 +195,23 @@ body.fade-out {
         <div class="speaker">Narrator</div>
 
         <div class="dialogue-text">
-            After completing the required steps and formalities, you receive confirmation
+            After completing the required steps and formalities, you receive <strong>confirmation</strong>
             that marks a key milestone in your journey.<br><br>
 
-            You are officially recognised as a
-            <span style="color:#ffd56b;font-weight:bold;">
-                tenant under the Brunei Economic Development Board (BEDB)
-            </span>,
+            You are <strong>officially</strong> recognised as a
+            <span class="highlight-green">Tenant</span>
+            under the <span class="highlight-yellow">Brunei Economic Development Board</span>,
             opening the door to a new phase of growth and opportunity.<br><br>
 
             As part of this milestone, you are allocated an
-            <strong>office space within the Anggerek Desa Technology Park (ADTP)</strong>,
+            <span class="highlight-green">office space</span>
+            within the
+            <span class="highlight-green">Anggerek Desa Technology Park (ADTP)</span>,
             providing a foundation to begin operations and build your business further.<br><br>
 
             What began as an idea has now taken shape —
-            a structured start within the BEDB ecosystem.<br><br>
+            a structured start within the
+            <span class="highlight-yellow">BEDB Ecosystem</span>.<br><br>
 
             As you look ahead, it is clear that this is only the beginning.
         </div>
